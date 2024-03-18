@@ -1,0 +1,19 @@
+<div class="dropdown mr-3" (click)="$event.stopPropagation()">
+    <button aria-expanded="false" #dropdownButton class="btn btn-secondary dropdown-toggle p-0" data-bs-toggle="dropdown"
+            type="button">
+        <i class="bi bi-gear"></i>
+    </button>
+    <div class="dropdown-menu" #dropdownMenu>
+        <div class="form-group mb-3">
+            <label class="form-label"
+                   for="agentState">{{'UI.CONFIGURATION_DROPDOWN.AGENT_STATE' | translate}}</label>
+            <div class="agent-state-toggle">
+            <mat-slide-toggle
+                    name="agentState"
+                    id="agentState"
+                    [(ngModel)]="agentState.state"
+                    (ngModelChange)="setAgentState()"></mat-slide-toggle>
+            </div>
+        </div>
+    </div>
+</div>

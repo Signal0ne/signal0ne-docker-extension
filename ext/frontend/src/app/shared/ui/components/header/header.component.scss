@@ -1,0 +1,68 @@
+#header {
+  padding-top: 12px;
+  padding-bottom: 4px;
+  background-color: var(--pale);
+  border-bottom: 2px solid var(--light-bright);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .controls-container {
+    gap: 0.75rem;
+
+    .flags-container {
+      cursor: pointer;
+      margin-left: 0.25rem;
+
+      img {
+        border-bottom: 3px solid transparent;
+        padding-bottom: 8px;
+        &:focus-visible {
+          outline: 2px solid var(--primary);
+        }
+      }
+  
+      img.active {
+        border-color: var(--primary);
+      }
+    }
+  }
+
+  .logos-container {
+    align-items: center;
+    border-radius: 0.25rem;
+    display: flex;
+    
+    &:focus-visible {
+      outline: 2px solid var(--primary);
+    }
+
+    .img-logo {
+      width: 100px;
+    }
+
+    .text-logo {
+      width: 200px;
+    }
+  }
+
+  .sign-out-icon {
+    background-color: transparent;
+    border: none;
+    border-radius: 0.25rem;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0.25rem;
+    &:focus-visible {
+      outline: 2px solid var(--primary);
+    }
+  }
+
+  .contact-icon {
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--primary);
+    }
+  }
+}

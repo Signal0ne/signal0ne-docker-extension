@@ -1,0 +1,34 @@
+<div
+  class="issue-container"
+  [ngClass]="isSelected ? 'selected' : ''"
+  tabindex="0"
+>
+  <div class="issue-content-container row align-items-center">
+    <div class="col-1 me-2">
+      <ng-container [ngSwitch]="issue.severity">
+        <svg-icon
+                *ngSwitchCase="IssueSeverity.WARNING"
+                class="img-logo"
+                src="assets/image/warning_icon.svg"
+                alt="Signal0ne"
+        ></svg-icon>
+        <svg-icon
+                *ngSwitchCase="IssueSeverity.CRITICAL"
+                class="img-logo3"
+                src="assets/image/critical_icon.svg"
+                alt="Signal0ne"
+        ></svg-icon>
+        <svg-icon
+                *ngSwitchCase="IssueSeverity.INFO"
+                class="img-logo"
+                src="assets/image/info_icon.svg"
+                alt="Signal0ne"
+        ></svg-icon>
+      </ng-container>
+    </div>
+    <div class="issue-content col-10">
+      <h6 class="issue-title text-wrap">{{ issue.title }}</h6>
+      <p class="issue-container-name text-wrap">{{ issue.containerName }}</p>
+    </div>
+  </div>
+</div>

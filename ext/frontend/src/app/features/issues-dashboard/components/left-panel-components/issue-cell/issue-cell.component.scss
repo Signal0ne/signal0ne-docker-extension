@@ -1,0 +1,54 @@
+.issue-container {
+  border: 1px solid var(--light-gray);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+  }
+  
+  &.selected, &:hover {
+    background-color: var(--pale);
+    border-color: var(--primary);
+  }
+
+  .issue-content-container {
+    flex-wrap: unset;
+
+    .issue-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .issue-container-name {
+        word-break: break-word;
+      }
+
+      .issue-title {
+        margin-bottom: unset;
+        word-break: break-word;
+      }
+    }
+  }
+
+  p {
+    color: var(--black);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .warning-icon {
+    fill: var(--color-warning);
+  }
+
+  .critical-icon {
+    fill: var(--color-critical);
+  }
+
+  .info-icon {
+    fill: var(--color-info);
+  }
+}

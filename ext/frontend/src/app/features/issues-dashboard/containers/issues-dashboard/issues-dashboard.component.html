@@ -1,0 +1,15 @@
+<div id="issues-dashboard" [ngClass]="isSidebarHidden ? 'sidebar-hidden' : ''">
+    <app-issues-left-panel (criteriaChanged)="searchIssues($event)" (viewIssue)="viewIssue($event)"
+                           [containers]="containers"
+                           [max]="max"
+                           [internalPage]="activePage"
+                           [isSidebarHidden]="isSidebarHidden"
+                           class="left-panel"
+                           (toggleSidebarVisibility)="isSidebarHidden = !isSidebarHidden"
+                           [issues]="issues"></app-issues-left-panel>
+    <app-issues-right-panel [activeIssue]="activeIssue"
+                            class="right-panel"
+                            (scoreSelected)="scoreSelected($event)"
+                            (markIssueAsResolved)="markIssueAsResolved()"
+                            (regenerateIssue)="regenerateIssue()"></app-issues-right-panel>
+</div>

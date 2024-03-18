@@ -1,0 +1,117 @@
+{
+  "VALIDATION": {
+    "DATE_RANGE_INVALID": "The withdrawal date from cannot be later than the withdrawal date to",
+    "REQUIRED": "This field is required",
+    "INVALID_EMAIL": "This email address is invalid",
+    "PASSWORD_MIN_LENGTH": "Password minimal length is: 8",
+    "PASSWORDS_MUST_MATCH": "Passwords are not equal",
+    "PASSWORD_NOT_MATCH_PATTERN": "Password must include at least one small letter one big letter one number and one special chart and at least 8 chars over all"
+  },
+  "ERROR": {
+    "NOT_FOUND": "No suitable resource found",
+    "UNDEFINED": "The error was not recognized",
+    "UNAUTHORIZED": "Authorization error! Please log in again.",
+    "INVALID_CREDENTIALS": "Invalid email or password.",
+    "ACCOUNT_NOT_ACTIVE": "Account not active. Confirm your email address.",
+    "ERROR_OCCURED": "Undefined error occured",
+    "DUPLICATE_NOT_CONFIRMED_USER_EMAIL": "Email address is already registered but not confirmed. Please confirm your email address",
+    "INVALID_EMAIL": "Invalid email address",
+    "EMAIL_ALREADY_IN_USE": "Email address is already in use",
+    "INVALID_VERIFICATION_TOKEN": "Invalid verification token",
+    "VERIFICATION_TOKEN_EXPIRED": "Verification token expired",
+    "EMAIL_NOT_FOUND": "Email address not found"
+  },
+  "ENUM": {
+    "ISSUE_TYPE": {
+      "ERROR": "Error",
+      "ANOMALY": "Anomaly"
+    },
+    "SEVERITY": {
+      "CRITICAL": "Critical",
+      "WARNING": "Warning",
+      "INFO": "Information"
+    }
+  },
+  "UI": {
+    "ERROR": "Error",
+    "SUBMIT": "Submit",
+    "SUCCESS": "API Key has changed",
+    "HEADER": {
+      "TITLE": "Signal One",
+      "US_FLAG_ALT": "American flag",
+      "PL_FLAG_ALT": "Polish flag",
+      "CONTACT_US": "Contact us"
+    },
+    "CONTACT_POPUP": {
+      "CONTACT": "Contact",
+      "SEND": "Send",
+      "EMAIL": "Email",
+      "MESSAGE_TITLE": "Message title",
+      "MESSAGE_CONTENT": "Message content",
+      "EMAIL_PLACEHOLDER": "example@gmail.com",
+      "MESSAGE_TITLE_PLACEHOLDER": "Example message title",
+      "COPY_DISCORD_URL": "Copy Discord invitation url",
+      "COPY_LINKEDIN_URL": "Copy LinkedIn profile url",
+      "COPY_GITHUB_URL": "Copy Github url",
+      "COPY_DISCORD_URL_SUCCESS": "Discord invitation url copied to clipboard",
+      "COPY_LINKEDIN_URL_SUCCESS": "LinkedIn profile url copied to clipboard",
+      "COPY_GITHUB_URL_SUCCESS": "Github url copied to clipboard",
+      "MESSAGE_SEND_SUCCESS": "Message successfully sent"
+    },
+    "CONFIGURATION_DROPDOWN": {
+      "AGENT_STATE": "Agent status"
+    }
+  },
+  "CONFIGURATION": {
+    "AGENT_STATE_ACTIVATED": "Agent activated",
+    "AGENT_STATE_DEACTIVATED": "Agent deactivated",
+    "AGENT_AUTH_DATA_UPDATED": "Agent connected"
+  },
+  "AUTH": {
+    "LOGIN_HEADER": "Login to your Signal0ne account",
+    "REGISTRATION_HEADER": "Create your Signal0ne account",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "LOGIN": "Sign in",
+    "GITHUB_SIGN_IN": "Sign in with Github",
+    "GOOGLE_SIGN_IN": "Sign in with Google",
+    "RESEND_VERIFICATION_LINK": "Resend account verification link",
+    "DONT_HAVE_ACCOUNT": "Dont't have an account?",
+    "SIGN_UP": "Sign up",
+    "OR": "Or",
+    "PASSWORD_CONFIRMATION": "Confirm password",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "EMAIL_VERIFICATION_LINK_SENT": "Email verification link sent. Please confirm your email and sign in.",
+    "VERIFICATION_LINK_RESEND_SUCCESS": "Verification link resend successfully sent",
+    "EMAIL_PLACEHOLDER": "example@gmail.com",
+    "SEND": "Send"
+  },
+  "FEATURES": {
+    "ISSUES": {
+      "SEARCH_CRITERIA": "Search criteria",
+      "ISSUE_NAME": "Issue name",
+      "TYPE": "Type",
+      "SEVERITY": "Severity",
+      "CONTAINER": "Container",
+      "DATE_FROM": "Date from",
+      "DATE_TO": "Date to",
+      "DATE_PLACEHOLDER": "DD/MM/YYYY",
+      "UNRESOLVED_ONLY": "Show only unresolved issues",
+      "CLEAR": "Clear",
+      "SEARCH": "Search",
+      "INSIGHTS": "Insights: ",
+      "SOURCES": "Sources: ",
+      "SOURCES_^RAW": "Sources",
+      "EMPTY_ISSUE_DETAIL_MESSAGE_NO_ISSUE": "There is no issue selected.",
+      "EMPTY_ISSUE_DETAIL_MESSAGE_SELECT_ISSUE": "Select the issue to see issue report.",
+      "EMPTY_ISSUES_LIST": "No issues found",
+      "REGENERATE_ISSUE": "Regenerate issue",
+      "MARK_ISSUE_RESOLVED": "Mark issue as resolved",
+      "COPY_LINK": "Copy link",
+      "LINK_COPIED_TO_CLIPBOARD": "Link copied to clipboard",
+      "CHAT": {
+        "ASK_MODEL": "Ask model"
+      }
+    }
+  }
+}

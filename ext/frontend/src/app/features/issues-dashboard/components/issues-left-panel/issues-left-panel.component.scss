@@ -1,0 +1,30 @@
+@import "../../../../../styles/mixins";
+
+#issues-left-panel {
+  @include sides-spacing();
+  min-height: calc(100vh - 70px);
+  background-color: var(--strong-white);
+  border-right: 2px solid var(--light-bright);
+  padding-top: 32px;
+  padding-bottom: 32px;
+  transition: .5s;
+
+  .empty-issues {
+    color: black;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .toggle-left-panel-button {
+    margin-left: auto;
+    padding: 0 !important;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .bi {
+      display: flex;
+    }
+  }
+}

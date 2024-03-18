@@ -1,0 +1,76 @@
+.form-control {
+  border: 2px solid var(--light-bright);
+  border-radius: 12px;
+  padding: 12px;
+  color: var(--dark);
+
+  &:active {
+    border-color: var(--primary);
+  }
+
+  &::placeholder,
+  .ng-placeholder {
+    color:var(--grey);
+  }
+
+  &.invalid {
+    border-color: var(--invalid-color)
+  }
+}
+
+.form-label {
+  color: var(--dark);
+}
+
+.input-checkbox {
+  border: 2px solid var(--light-bright);
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+
+  &:checked {
+    accent-color: var(--primary);
+  }
+}
+
+.btn {
+  border-radius: 16px;
+  padding: 8px;
+  transition: .5s;
+
+  &-secondary {
+    border: 1px solid var(--primary);
+    background-color: transparent !important;
+    color: var(--primary);
+
+    &:focus-visible, &:hover {
+      background-color: var(--primary) !important;
+    }
+  }
+
+  &-primary {
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+
+    &:focus-visible, &:hover {
+      background-color: var(--primary-dark);
+    }
+  }
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+.pagination {
+  .page-link.active, .active > .page-link {
+    color: var(--primary);
+    border-color: var(--deep-bright);
+    background-color: var(--pale);
+  }
+
+  .page-link {
+    color: var(--primary);
+    border-color: var(--deep-bright);
+  }
+}

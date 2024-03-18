@@ -1,0 +1,46 @@
+.dropdown {
+  button.dropdown-toggle {
+    border: none;
+    color: var(--black) !important;
+    height: 1.5rem;
+    transition: 0s outline;
+    width: 1.5rem;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      background-color: transparent !important;
+      color: var(--black) !important;
+    }
+
+    &:focus-visible {
+      background-color: unset !important;
+      box-shadow: none !important;
+      outline: 2px solid var(--primary);
+    }
+
+    .bi-gear {
+      color: var(--primary) !important;
+    }
+  }
+
+  .btn.show {
+    color: var(--black)
+  }
+
+  .dropdown-menu {
+    width: 350px;
+    padding: 16px;
+    border-radius: 12px;
+    border-color: var(--light-bright);
+    border-width: 2px;
+  }
+
+  .agent-state-toggle{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+}

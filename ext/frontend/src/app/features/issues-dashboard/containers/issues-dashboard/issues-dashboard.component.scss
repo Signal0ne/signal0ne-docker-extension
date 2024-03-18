@@ -1,0 +1,21 @@
+#issues-dashboard {
+  display: flex;
+
+  &.sidebar-hidden {
+    .left-panel {
+      width: 10%;
+    }
+
+    .right-panel {
+      width: 90%;
+    }
+  }
+
+  .left-panel {
+    width: 33%;
+  }
+
+  .right-panel {
+    width: 67%;
+  }
+}
