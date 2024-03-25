@@ -189,7 +189,6 @@ export class AuthStateService implements OnDestroy {
 
               resolve(token);
             }
-            // this.authenthicateAgent();
           }
         })
         .catch((error) => {
