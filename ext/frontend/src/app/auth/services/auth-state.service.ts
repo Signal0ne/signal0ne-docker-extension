@@ -57,7 +57,6 @@ export class AuthStateService implements OnDestroy {
   }
 
   public login(email: string, password: string, silent: boolean = false): Promise<Token> {
-    console.log('TEST', email, password)
     return new Promise((resolve, reject) => {
       this.authService.login(email, password).toPromise()
         .then((result: { token: Token }) => {
@@ -190,7 +189,7 @@ export class AuthStateService implements OnDestroy {
 
               resolve(token);
             }
-            this.authenthicateAgent();
+            // this.authenthicateAgent();
           }
         })
         .catch((error) => {
@@ -259,7 +258,7 @@ export class AuthStateService implements OnDestroy {
     this.router.navigateByUrl('/login')
     this.wasNavigatedFromLogin = false;
   }
-  private async authenthicateAgent():Promise<void> {
+  public async authenthicateAgent():Promise<void> {
     const agentToken = await this.authService.authAgent(this.token).toPromise().then((result: { agentToken: string }) => {
       return result.agentToken;
     })

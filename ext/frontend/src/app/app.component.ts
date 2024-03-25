@@ -20,6 +20,7 @@ export class AppComponent implements OnInit{
   public ngOnInit(): void {
     this.authStateService.recoverToken().then(() => {
       this.configurationService.getCurrentAgentState();
+      this.authStateService.authenthicateAgent();
       this.router.navigateByUrl('/issues-dashboard')
     }).catch(err => {
       if (!this.router.url.includes('login')) {
