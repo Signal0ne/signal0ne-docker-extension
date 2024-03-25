@@ -3,6 +3,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
+import {
+  ReportIssueAnalysisComponent
+} from 'app/features/issues-dashboard/components/right-panel-components/report-issue-analysis/report-issue-analysis.component';
 import { SharedModule } from 'app/shared/SharedModule';
 import {
   IssuesDashboardComponent
@@ -37,7 +40,17 @@ import {
 import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
-  declarations: [ IssuesDashboardComponent, IssuesSearchCriteriaComponent, IssuesRightPanelComponent, IssuesLeftPanelComponent, IssuesListComponent, IssueCellComponent, SolutionsChatComponent, SolutionsListComponent ],
+  declarations: [
+    IssuesDashboardComponent,
+    IssuesSearchCriteriaComponent,
+    IssuesRightPanelComponent,
+    IssuesLeftPanelComponent,
+    IssuesListComponent,
+    IssueCellComponent,
+    SolutionsChatComponent,
+    SolutionsListComponent,
+    ReportIssueAnalysisComponent
+  ],
   imports: [
     CommonModule,
     TranslateModule,

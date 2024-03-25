@@ -10,8 +10,12 @@
   }
   
   &.selected, &:hover {
-    background-color: var(--pale);
+    background-color: var(--pale) !important;
     border-color: var(--primary);
+  }
+
+  &.resolved {
+    background-color: var(--green);
   }
 
   .issue-content-container {

@@ -1,0 +1,52 @@
+<div class="report-issue-modal">
+    <div class="modal-header">
+        <h2 class="modal-title mb-0">{{'FEATURES.ISSUES.REPORT_ISSUE_ANALYSIS' | translate}}</h2>
+        <button type="button" class="close-button btn btn-secondary ms-auto" (click)="close()">
+            <i class="bi bi-x"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="reportIssueAnalysisForm">
+            <div class="form-group mb-3">
+                <label class="form-label" for="reason">{{
+                  "FEATURES.ISSUES.REPORT_REASON" | translate
+                    }}</label>
+                <textarea
+                        rows="4"
+                        class="form-control"
+                        formControlName="reason"
+                        [ngClass]="{
+                          invalid:
+                            reasonControl.invalid && isSubmitted
+                        }"
+                        id="reason"
+                        type="text"
+                ></textarea>
+                <div
+                        *ngIf="reasonControl.invalid && isSubmitted"
+                        class="col-12 invalid-feedback my-2"
+                >
+                    <div *ngIf="reasonControl.hasError('required')">
+                        {{ "VALIDATION.REQUIRED" | translate }}
+                    </div>
+                </div>
+            </div>
+            <div class="custom-control custom-checkbox d-flex align-items-center">
+                <input
+                        class="custom-control-input input-checkbox"
+                        formControlName="shouldDelete"
+                        id="shouldDelete"
+                        name="shouldDelete"
+                        type="checkbox"
+                />
+                <label class="form-label ms-3 mb-0" for="shouldDelete">{{
+                  "FEATURES.ISSUES.DELETE_ISSUE" | translate
+                    }}</label>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer flex-column mt-4">
+        <button type="button" class="btn btn-primary mx-auto w-50" (click)="submitContact()">{{'FEATURES.ISSUES.SEND' | translate}}</button>
+    </div>
+
+</div>

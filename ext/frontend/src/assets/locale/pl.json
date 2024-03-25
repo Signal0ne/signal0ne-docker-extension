@@ -109,6 +109,11 @@
       "MARK_ISSUE_RESOLVED": "Oznacz incydent jako rozwiązany",
       "COPY_LINK": "Skopiuj link",
       "LINK_COPIED_TO_CLIPBOARD": "Link skopiowany do schowka",
+      "REPORT_REASON": "Powód zgłoszenia",
+      "DELETE_ISSUE": "Usuń incydent",
+      "REPORT_REASON_SUCCESSFULLY_SEND": "Zgłoszenie zostało wysłane pomyślnie",
+      "SEND": "Wyślij",
+      "REPORT_ISSUE_ANALYSIS": "Zgłoś analizę incydentu",
       "CHAT": {
         "ASK_MODEL": "Zapytaj model"
       }
