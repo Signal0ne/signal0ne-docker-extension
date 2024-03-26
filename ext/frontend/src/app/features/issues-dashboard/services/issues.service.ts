@@ -51,9 +51,9 @@ export class IssuesService {
   }
 
   public reportIssueAnalise(issueId: string, reportIssueData: ReportIssueAnaliseDTO): Observable<void> {
-    return this.httpClient.put<void>(`${environment.apiUrl}/user/issues/report`,
+    return this.httpClient.post<void>(`${environment.apiUrl}/user/issues/report`,
       {
-            id: issueId,
+            issueId: issueId,
             shouldDelete: !!reportIssueData.shouldDelete,
             reason: reportIssueData.reason
       });
