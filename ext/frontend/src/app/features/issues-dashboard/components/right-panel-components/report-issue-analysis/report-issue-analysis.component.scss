@@ -1,0 +1,53 @@
+.report-issue-modal {
+  border-radius: 8px;
+  padding: 12px 16px;
+
+  .modal-header {
+    align-items: center;
+    display: flex;
+    margin-bottom: 1.5rem;
+
+    .bi-x {
+      height: 24px;
+      width: 24px;
+
+      &:before {
+        height: 24px;
+        vertical-align: 0;
+        width: 24px;
+      }
+    }
+    .modal-title {
+      color: var(--primary);
+      font-size: 30px;
+    }
+  }
+
+  .modal-body {
+    textarea{
+      resize: none;
+    }
+  }
+
+  .close-button, .social-button {
+    align-items: center;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    font-size: 20px;
+    height: 1.5rem;
+    justify-content: center;
+    width: 1.5rem;
+  }
+
+  .social-button {
+    height: 2.5rem;
+    width: 2.5rem;
+
+    .bi {
+      display: flex;
+      height: 20px;
+      width: 20px;
+    }
+  }
+}

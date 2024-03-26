@@ -127,5 +127,9 @@
     justify-content: center;
     margin-left: 1rem;
     width: 2rem;
+
+    &.resolved {
+      background-color: var(--green) !important;
+    }
   }
 }

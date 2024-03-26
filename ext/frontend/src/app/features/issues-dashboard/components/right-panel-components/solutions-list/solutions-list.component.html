@@ -66,11 +66,14 @@
               [ngClass]="activeIssue.score === -1 ? 'score-selected' : ''"
       ></i>
     </div>
-    <button class="btn btn-secondary reload-button" (click)="markIssueAsResolved.emit()" [matTooltip]="'FEATURES.ISSUES.MARK_ISSUE_RESOLVED' | translate">
+    <button [ngClass]="{'resolved': activeIssue.isResolved}" class="btn btn-secondary reload-button" (click)="markIssueAsResolved.emit()" [matTooltip]="'FEATURES.ISSUES.MARK_ISSUE_RESOLVED' | translate">
       <i class="bi bi-check-lg"></i>
     </button>
     <button class="btn btn-secondary reload-button" (click)="regenerateIssue.emit()" [matTooltip]="'FEATURES.ISSUES.REGENERATE_ISSUE' | translate">
       <i class="bi bi-arrow-clockwise"></i>
+    </button>
+    <button class="btn btn-secondary reload-button" (click)="openReportIssueAnalysisModal()" [matTooltip]="'FEATURES.ISSUES.REPORT_ISSUE_ANALYSIS' | translate">
+      <i class="bi bi-flag-fill"></i>
     </button>
   </div>
 </div>

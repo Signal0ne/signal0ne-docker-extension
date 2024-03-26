@@ -1,6 +1,6 @@
 <div
   class="issue-container"
-  [ngClass]="isSelected ? 'selected' : ''"
+  [ngClass]="{'selected': isSelected, 'resolved': issue.isResolved}"
   tabindex="0"
 >
   <div class="issue-content-container row align-items-center">

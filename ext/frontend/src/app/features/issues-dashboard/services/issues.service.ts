@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { ReportIssueAnaliseDTO } from 'app/shared/interfaces/ReportIssueAnaliseDTO';
 import { Observable } from 'rxjs';
 import { environment } from 'environment/environment';
 import { IssueSearchCriteriaDTO } from 'app/shared/interfaces/IssueSearchCriteriaDTO';
@@ -49,6 +50,16 @@ export class IssuesService {
     return this.httpClient.get<DetailedIssueDTO>(`${environment.apiUrl}/user/issues/${issueId}`);
   }
 
+  public reportIssueAnalise(issueId: string, reportIssueData: ReportIssueAnaliseDTO): Observable<void> {
+    return this.httpClient.put<void>(`${environment.apiUrl}/user/issues/report`,
+      {
+            id: issueId,
+            shouldDelete: !!reportIssueData.shouldDelete,
+            reason: reportIssueData.reason
+      });
+  }
+
+
   public rateIssue(issueId: string, rateIssueData: RateIssueDTO): Observable<void> {
     return this.httpClient.put<void>(`${environment.apiUrl}/user/issues/${issueId}/score`, rateIssueData);
   }
@@ -60,7 +71,6 @@ export class IssuesService {
 
   public markIssueAsResolved(issueId: string): Observable<void> {
     return this.httpClient.put<void>(`${environment.apiUrl}/user/issues/${issueId}/resolve`, {isResolved: true});
-
   }
 
 }
