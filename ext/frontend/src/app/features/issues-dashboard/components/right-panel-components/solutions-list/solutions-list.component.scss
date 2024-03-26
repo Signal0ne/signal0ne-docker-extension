@@ -129,7 +129,8 @@
     width: 2rem;
 
     &.resolved {
-      background-color: var(--green) !important;
+      background-color: var(--primary-dark) !important;
+      color: var(--white) !important;
     }
   }
 }
