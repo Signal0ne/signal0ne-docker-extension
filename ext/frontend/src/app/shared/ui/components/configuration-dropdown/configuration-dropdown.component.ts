@@ -1,7 +1,7 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ConfigurationService } from 'app/shared/services/configuration.service';
+import { Component, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AgentStateDTO } from 'app/shared/interfaces/AgentStateDTO';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { ConfigurationService } from 'app/shared/services/configuration.service';
 
 @Component({
   selector: 'app-configuration-dropdown',
@@ -14,7 +14,9 @@ export class ConfigurationDropdownComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.agentState = new AgentStateDTO(this.configurationService.currentAgentState);
+    this.configurationService.currentAgentState$.pipe(takeUntilDestroyed()).subscribe(state => {
+      this.agentState = new AgentStateDTO(state)
+    });
   }
 
   public setAgentState(): void {
