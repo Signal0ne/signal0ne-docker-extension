@@ -50,4 +50,8 @@ export class ConfigurationService {
       this.toastrService.success(this.translateService.instant('CONFIGURATION.AGENT_AUTH_DATA_UPDATED'));
     });
   }
+
+  public markUserActivity(): void {
+    this.httpClient.get<void>(`${environment.apiUrl}/user/last-activity`).subscribe();
+  }
 }
