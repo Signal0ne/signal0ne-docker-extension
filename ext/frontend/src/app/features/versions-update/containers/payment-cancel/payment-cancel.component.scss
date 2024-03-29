@@ -1,0 +1,5 @@
+@import "../../../../../styles/mixins";
+
+#payment-cancel-component {
+  @include sides-spacing();
+}
