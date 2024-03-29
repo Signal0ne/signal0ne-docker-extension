@@ -1,5 +1,5 @@
 <div id="issues-list-container" #issuesListContainer
-     [ngClass]="issuesListContainer.scrollHeight > issuesListContainer.clientHeight
+     [ngClass]="issuesListContainerElement?.nativeElement.scrollHeight > issuesListContainerElement?.nativeElement.clientHeight
       ? 'extra-padding' : ''">
     <app-issue-cell
             (click)="selectIssue(issue)"
