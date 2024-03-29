@@ -15,7 +15,7 @@
   }
 
   &.resolved {
-    background-color: var(--green);
+    border-color: var(--green);
   }
 
   .issue-content-container {
@@ -54,5 +54,10 @@
 
   .info-icon {
     fill: var(--color-info);
+  }
+
+  .resolved-icon {
+    color: var(--green);
+    font-size: 40px;
   }
 }

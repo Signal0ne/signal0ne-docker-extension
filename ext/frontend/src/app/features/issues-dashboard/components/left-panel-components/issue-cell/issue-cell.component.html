@@ -1,11 +1,12 @@
 <div
   class="issue-container"
-  [ngClass]="{'selected': isSelected}"
+  [ngClass]="{'selected': isSelected, 'resolved': issue.isResolved}"
   tabindex="0"
 >
   <div class="issue-content-container row align-items-center">
     <div class="col-1 me-2">
-      <ng-container [ngSwitch]="issue.severity">
+      <i *ngIf="issue.isResolved" class="bi bi-check2 resolved-icon"></i>
+      <ng-container *ngIf="!issue.isResolved" [ngSwitch]="issue.severity">
         <svg-icon
                 *ngSwitchCase="IssueSeverity.WARNING"
                 class="img-logo"

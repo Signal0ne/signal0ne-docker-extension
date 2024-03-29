@@ -1,4 +1,6 @@
-<div id="issues-list-container">
+<div id="issues-list-container" #issuesListContainer
+     [ngClass]="issuesListContainer.scrollHeight > issuesListContainer.clientHeight
+      ? 'extra-padding' : ''">
     <app-issue-cell
             (click)="selectIssue(issue)"
             (keydown)="selectIssueKeydown(issue, $event)"
