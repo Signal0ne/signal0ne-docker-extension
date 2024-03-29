@@ -21,6 +21,7 @@ export class AppComponent implements OnInit{
     this.authStateService.recoverToken().then(() => {
       this.configurationService.getCurrentAgentState();
       this.authStateService.authenthicateAgent();
+      this.configurationService.markUserActivity();
       this.router.navigateByUrl('/issues-dashboard')
     }).catch(err => {
       if (!this.router.url.includes('login')) {
