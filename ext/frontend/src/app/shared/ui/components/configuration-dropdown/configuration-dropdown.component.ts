@@ -8,12 +8,9 @@ import { ConfigurationService } from 'app/shared/services/configuration.service'
   templateUrl: './configuration-dropdown.component.html',
   styleUrls: [ './configuration-dropdown.component.scss' ]
 })
-export class ConfigurationDropdownComponent implements OnInit {
+export class ConfigurationDropdownComponent {
   public agentState: AgentStateDTO;
   constructor(private configurationService: ConfigurationService) {
-  }
-
-  public ngOnInit(): void {
     this.configurationService.currentAgentState$.pipe(takeUntilDestroyed()).subscribe(state => {
       this.agentState = new AgentStateDTO(state)
     });
