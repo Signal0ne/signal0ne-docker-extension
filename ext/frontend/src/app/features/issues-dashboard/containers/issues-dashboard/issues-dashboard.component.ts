@@ -40,7 +40,6 @@ export class IssuesDashboardComponent implements OnInit {
     if (searchCriteria) {
       this.activePage = searchCriteria.offset ? searchCriteria.offset * searchCriteria.limit : 1;
       this.lastSearchCriteria = {
-        ...this.lastSearchCriteria,
         ...searchCriteria
       };
     }
@@ -62,7 +61,9 @@ export class IssuesDashboardComponent implements OnInit {
   }
 
   public markIssueAsResolved(): void {
-    this.issuesService.markIssueAsResolved(this.activeIssue.id).subscribe()
+    this.issuesService.markIssueAsResolved(this.activeIssue.id).subscribe(res => {
+      this.activeIssue.isResolved = true;
+    })
   }
 
   public regenerateIssue(): void {

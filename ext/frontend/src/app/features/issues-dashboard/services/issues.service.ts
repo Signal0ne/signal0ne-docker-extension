@@ -21,22 +21,23 @@ export class IssuesService {
 
   public getIssuesList(searchCriteria?: IssueSearchCriteriaDTO, revokeLoader: boolean = false): Observable<SearchIssuesResponseDTO> {
     if (searchCriteria) {
-      if (searchCriteria.startTimestamp) {
-        searchCriteria.startTimestamp = new Date(searchCriteria.startTimestamp).toISOString();
+      const searchCriteriaClone = {...searchCriteria}
+      if (searchCriteriaClone.startTimestamp) {
+        searchCriteriaClone.startTimestamp = new Date(searchCriteriaClone.startTimestamp).toISOString();
       }
-      if (searchCriteria.endTimestamp) {
-        searchCriteria.endTimestamp = new Date(searchCriteria.endTimestamp).toISOString();
+      if (searchCriteriaClone.endTimestamp) {
+        searchCriteriaClone.endTimestamp = new Date(searchCriteriaClone.endTimestamp).toISOString();
       }
 
-      if (searchCriteria.isResolved) {
-        searchCriteria.isResolved = false;
+      if (searchCriteriaClone.isResolved) {
+        searchCriteriaClone.isResolved = false;
       } else {
-        searchCriteria.isResolved = null;
+        searchCriteriaClone.isResolved = null;
       }
 
       const params: HttpParams = new HttpParams({
         encoder: new HttpEncoder(),
-        fromObject: { ...(NormalizeObjectValue(searchCriteria, [ 'startTimestamp', 'endTimestamp' ]) as any) }
+        fromObject: { ...(NormalizeObjectValue(searchCriteriaClone, [ 'startTimestamp', 'endTimestamp' ]) as any) }
       });
 
       return this.httpClient.get<SearchIssuesResponseDTO>(`${environment.apiUrl}/user/issues?revokeLoader=${revokeLoader}`, { params });
