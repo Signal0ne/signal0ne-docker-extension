@@ -1,5 +1,6 @@
 #issues-list-container {
   overflow-y: auto;
+  overflow-x: hidden;
   height: calc(100vh - 320px);
 
   &::-webkit-scrollbar {

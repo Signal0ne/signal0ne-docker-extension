@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AuthStateService } from 'app/auth/services/auth-state.service';
 import { LanguageVersion } from 'app/shared/enum/LanguageVersion';
 import { ApplicationStateService } from 'app/shared/services/application-state.service';
 import { ConfigurationService } from 'app/shared/services/configuration.service';
 import { LangugageService } from 'app/shared/services/language.service';
 import { ContactPopupComponent } from 'app/shared/ui/components/contact/contact-popup.component';
+import { VersionUpdatePopupComponent } from 'app/shared/ui/components/version-update/version-update-popup.component';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -23,7 +25,8 @@ export class HeaderComponent {
     private applicationStateService: ApplicationStateService,
     protected configurationService: ConfigurationService,
     private authStateService: AuthStateService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {
     this.activeLanguage$ = this.applicationStateService.language$;
     this.isLoggedIn$ = this.authStateService.isLoggedIn$;
@@ -49,6 +52,12 @@ export class HeaderComponent {
 
   public openContactModal(): void {
     this.dialog.open(ContactPopupComponent, {
+      width: '500px',
+    });
+  }
+
+  public openProInfoModal(): void {
+    this.dialog.open(VersionUpdatePopupComponent, {
       width: '500px',
     });
   }

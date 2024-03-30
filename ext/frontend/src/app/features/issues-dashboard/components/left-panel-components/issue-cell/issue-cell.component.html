@@ -4,7 +4,7 @@
   tabindex="0"
 >
   <div class="issue-content-container row align-items-center">
-    <div class="col-1 me-2">
+    <div class="col-1 me-lg-3 me-4">
       <i *ngIf="issue.isResolved" class="bi bi-check2 resolved-icon"></i>
       <ng-container *ngIf="!issue.isResolved" [ngSwitch]="issue.severity">
         <svg-icon

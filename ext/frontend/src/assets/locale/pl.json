@@ -40,7 +40,9 @@
       "TITLE": "Signal One",
       "US_FLAG_ALT": "Amerykańska flaga",
       "PL_FLAG_ALT": "Polska flaga",
-      "CONTACT_US": "Skontaktuj się z nami"
+      "CONTACT_US": "Skontaktuj się z nami",
+      "PRO_BUTTON": "PRO",
+      "PRO_BUTTON_TOOLTIP": "Ulepsz Signal0ne do wersji PRO"
     },
     "CONTACT_POPUP": {
       "CONTACT": "Kontakt",
@@ -57,6 +59,9 @@
       "COPY_LINKEDIN_URL_SUCCESS": "Adres profilu LinkedIn został skopiowany do schowka",
       "COPY_GITHUB_URL_SUCCESS": "Adres projektu na Github został skopiowany do schowka",
       "MESSAGE_SEND_SUCCESS": "Wiadomość została wysłana"
+    },
+    "PRO_VERSION_POPUP": {
+      "PRO_VERSION": "Wersja PRO"
     },
     "CONFIGURATION_DROPDOWN": {
       "AGENT_STATE": "Stan agenta"

@@ -1,0 +1,19 @@
+<div class="price-modal">
+    <div class="modal-header">
+        <h2 class="modal-title mb-0">{{'UI.PRO_VERSION_POPUP.PRO_VERSION' | translate}}</h2>
+        <button type="button" class="close-button btn btn-secondary ms-auto" (click)="close()">
+            <i class="bi bi-x"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h5 class="price">{{ 'UI.PRO_VERSION_POPUP.PRO_VERSION_PRICE' | translate }}: {{ price }} €</h5>
+        <h6 class="what-you-get my-3">{{ 'UI.PRO_VERSION_POPUP.WHAT_WILL_YOU_GET' | translate }}</h6>
+        <ul>
+            <li>{{ 'UI.PRO_VERSION_POPUP.PRO_VERSION_BENEFIT_1' | translate }}</li>
+        </ul>
+    </div>
+    <div class="modal-footer flex-column mt-4">
+        <button type="button" class="btn btn-primary mx-auto w-50" (click)="tryProUpdate()">{{'UI.PRO_VERSION_POPUP.UPGRADE' | translate}}</button>
+    </div>
+
+</div>
