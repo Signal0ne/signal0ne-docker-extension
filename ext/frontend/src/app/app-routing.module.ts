@@ -12,6 +12,11 @@ const routes: Routes = [
     path: 'issues-dashboard',
     loadChildren: () => import('app/features/issues-dashboard/issues-dashboard.module').then(m => m.IssuesDashboardModule),
     canActivate: [LoggedInGuardService]
+  },
+  {
+    path: 'versions-update',
+    loadChildren: () => import('app/features/versions-update/versions-update.module').then(m => m.VersionsUpdateModule),
+    canActivate: [LoggedInGuardService]
   }
 ];
 

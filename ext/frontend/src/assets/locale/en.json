@@ -40,7 +40,9 @@
       "TITLE": "Signal One",
       "US_FLAG_ALT": "American flag",
       "PL_FLAG_ALT": "Polish flag",
-      "CONTACT_US": "Contact us"
+      "CONTACT_US": "Contact us",
+      "PRO_BUTTON": "PRO",
+      "PRO_BUTTON_TOOLTIP": "Update your Signal0ne one version to PRO"
     },
     "CONTACT_POPUP": {
       "CONTACT": "Contact",
@@ -57,6 +59,13 @@
       "COPY_LINKEDIN_URL_SUCCESS": "LinkedIn profile url copied to clipboard",
       "COPY_GITHUB_URL_SUCCESS": "Github url copied to clipboard",
       "MESSAGE_SEND_SUCCESS": "Message successfully sent"
+    },
+    "PRO_VERSION_POPUP": {
+      "PRO_VERSION": "Version PRO",
+      "PRO_VERSION_PRICE": "Price",
+      "WHAT_WILL_YOU_GET": "What will you get ?",
+      "PRO_VERSION_BENEFIT_1": "Pro version benefit 1 placeholder",
+      "UPGRADE": "Upgrade"
     },
     "CONFIGURATION_DROPDOWN": {
       "AGENT_STATE": "Agent status"

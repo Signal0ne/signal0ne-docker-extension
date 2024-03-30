@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ResendVerificationLinkPopupComponent } from 'app/auth/components/resendVerificationLink/resend-verification-link-popup.component';
+import {
+  ResendVerificationLinkPopupComponent
+} from 'app/auth/components/resendVerificationLink/resend-verification-link-popup.component';
 import { AuthStateService } from 'app/auth/services/auth-state.service';
-import { ContactPopupComponent } from 'app/shared/ui/components/contact/contact-popup.component';
 import { environment } from 'environment/environment.development';
 
 @Component({
