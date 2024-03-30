@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: [ './payment-success.component.scss' ]
 })
 export class PaymentSuccessComponent {
-
+  public constructor() {
+    console.log('Successful payment!')
+  }
 }
