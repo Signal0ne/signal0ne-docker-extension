@@ -19,13 +19,13 @@ export class VersionUpdatePopupComponent {
       name: 'Signal0ne Pro',
       currency: 'eur',
       amount: environment.proAccountPrice * 100,
-      quantity: '1',
+      quantity: 1,
       cancelUrl: 'http://localhost:37001/cancel',
       successUrl: 'http://localhost:37001/success',
     };
       const stripe = await this.stripePromise;
       this.http
-        .post(`${environment.apiUrl}/payment`, payment)
+        .post(`${environment.apiUrl}/user/upgrade-pro`, payment)
         .subscribe((data: any) => {
           stripe.redirectToCheckout({
             sessionId: data.id,
