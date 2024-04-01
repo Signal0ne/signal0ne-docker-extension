@@ -15,7 +15,7 @@ import { environment } from 'environment/environment.development';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public isSubmitted: boolean = false;
-  public githubLoginUrl: string = `https://github.com/login/oauth/authorize?client_id=${environment.githubClientId}`;
+  public githubLoginUrl: string = `https://github.com/login/oauth/authorize?scope=user&client_id=${environment.githubClientId}`;
   public googleLoginUrl: string = `https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&nonce=${
     Math.random() * 100000000
   }&response_type=id_token&redirect_uri=http://localhost:37001/google-login&client_id=${
