@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-cancel-component',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: [ './payment-cancel.component.scss' ]
 })
 export class PaymentCancelComponent {
-  public constructor() {
-    console.log('TESTS')
+  public constructor(private router: Router) {}
+
+  public goToDashboard(): void {
+    this.router.navigateByUrl('/issues-dashboard');
   }
+
 }

@@ -36,7 +36,6 @@ export class RegisterComponent implements OnInit{
     this.isSubmitted = true;
     this.registrationForm.markAsDirty();
     this.registrationForm.markAllAsTouched();
-    console.log(this.registrationForm)
     if (this.registrationForm.valid) {
       this.router.navigateByUrl('/login');
       this.toastrService.success(this.translateService.instant('AUTH.EMAIL_VERIFICATION_LINK_SENT'));

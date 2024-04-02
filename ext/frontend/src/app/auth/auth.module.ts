@@ -12,7 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AuthRoutingModule } from 'app/auth/auth-routing.module';
-import { VersionsUpdateRoutingModule } from 'app/features/versions-update/versions-update-routing.module';
 import { LoginComponent } from 'app/auth/components/login/login.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'app/shared/interceptors/auth.interceptor';
@@ -29,7 +28,6 @@ import { GithubLoginComponent } from 'app/auth/components/githubLogin/github-log
     ReactiveFormsModule,
     NgbModule,
     BsDatepickerModule,
-    VersionsUpdateRoutingModule,
     AuthRoutingModule
   ],
   exports: [],

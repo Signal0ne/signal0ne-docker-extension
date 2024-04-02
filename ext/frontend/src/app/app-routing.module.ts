@@ -14,7 +14,7 @@ const routes: Routes = [
     canActivate: [LoggedInGuardService]
   },
   {
-    path: 'versions-update',
+    path: 'version-update',
     loadChildren: () => import('app/features/versions-update/versions-update.module').then(m => m.VersionsUpdateModule),
     canActivate: [LoggedInGuardService]
   }
