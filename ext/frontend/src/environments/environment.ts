@@ -8,5 +8,5 @@ export const environment = {
   githubClientId: '6c88a4f9d4868879974e',
   proAccountPrice: 10,
   proProductSubscriptionId: 'price_1OzmxX06sWxzpbKvzFO27PDe',
-  stripePublicKey: 'pk_live_51Ozmdu06sWxzpbKvErR4hFSPbT4oATv46boitAQ4s27HKsk4xPDIsGf8O5f85hsNhDx8uGYc3I0pB7NWO6NejqGL00J2sBUMWy',
+  stripePublicKey: 'pk_test_51Ozmdu06sWxzpbKvDWwUu8D4Jpspm4ffoUL4Obo43sUnj0rtjbWV414CRdqSHiW0HDoonwJqbQJ6A0CtMrzjDuZA00OIckpih9',
 };
