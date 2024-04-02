@@ -133,8 +133,7 @@
       "SUCCESS_DESCRIPTION": "You can now enjoy our pro features.",
       "CANCEL": "Upgrade cancel",
       "CANCEL_DESCRIPTION": "You have canceled Signal0ne pro version upgrade.",
-      "GO_BACK_TO_DASHBOARD": "Go back to dashboard",
-      "ERROR_CONFIRMING_VERSION_UPDATE": "An error occured while confirming pro version update. Please try again"
+      "GO_BACK_TO_DASHBOARD": "Go back to dashboard"
     }
   }
 }
