@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
   public isLoading$: Observable<boolean>;
+  public unauthorizedPaths: string[] = ['/login', '/register']
 
   constructor(private applicationStateService: ApplicationStateService, private configurationService: ConfigurationService, private authStateService: AuthStateService, private router: Router) {
     this.isLoading$ = this.applicationStateService.isLoading$;
@@ -22,7 +23,10 @@ export class AppComponent implements OnInit{
       this.configurationService.getCurrentAgentState();
       this.authStateService.authenthicateAgent();
       this.configurationService.markUserActivity();
-      this.router.navigateByUrl('/issues-dashboard')
+      const pathName: string =  window.location.pathname;
+      if (this.unauthorizedPaths.includes(pathName)) {
+        this.router.navigateByUrl('/issues-dashboard')
+      }
     }).catch(err => {
       if (!this.router.url.includes('login')) {
         this.router.navigateByUrl('/login')

@@ -19,7 +19,8 @@
     "EMAIL_ALREADY_IN_USE": "Adres email jest już używany",
     "INVALID_VERIFICATION_TOKEN": "Nieprawidłowy kod weryfikacyjny",
     "VERIFICATION_TOKEN_EXPIRED": "Kod weryfikacyjny wygasł",
-    "EMAIL_NOT_FOUND": "Adres email nie został znaleziony"
+    "EMAIL_NOT_FOUND": "Adres email nie został znaleziony",
+    "VERSION_UPGRADE_ERROR": "Coś poszło nie tak podczas aktualizacji twojego Signal0ne do wersji PRO. Spróboj ponownie."
   },
   "ENUM": {
     "ISSUE_TYPE": {
@@ -40,7 +41,9 @@
       "TITLE": "Signal One",
       "US_FLAG_ALT": "Amerykańska flaga",
       "PL_FLAG_ALT": "Polska flaga",
-      "CONTACT_US": "Skontaktuj się z nami"
+      "CONTACT_US": "Skontaktuj się z nami",
+      "PRO_BUTTON": "PRO",
+      "PRO_BUTTON_TOOLTIP": "Ulepsz Signal0ne do wersji PRO"
     },
     "CONTACT_POPUP": {
       "CONTACT": "Kontakt",
@@ -57,6 +60,13 @@
       "COPY_LINKEDIN_URL_SUCCESS": "Adres profilu LinkedIn został skopiowany do schowka",
       "COPY_GITHUB_URL_SUCCESS": "Adres projektu na Github został skopiowany do schowka",
       "MESSAGE_SEND_SUCCESS": "Wiadomość została wysłana"
+    },
+    "PRO_VERSION_POPUP": {
+      "PRO_VERSION": "Wersja PRO",
+      "PRO_VERSION_PRICE": "Cena",
+      "WHAT_WILL_YOU_GET": "Co otrzymasz ?",
+      "PRO_VERSION_BENEFIT_1": "Benefit 1 placeholder",
+      "UPGRADE": "Aktualizuj"
     },
     "CONFIGURATION_DROPDOWN": {
       "AGENT_STATE": "Stan agenta"
@@ -118,5 +128,12 @@
         "ASK_MODEL": "Zapytaj model"
       }
     }
+  },
+  "PAYMENTS": {
+    "SUCCESS": "Aktualizacja przebiegła pomyślnie",
+    "SUCCESS_DESCRIPTION": "Możesz teraz używać udogodnień wersji PRO.",
+    "CANCEL": "Aktualizacja wstrzymana",
+    "CANCEL_DESCRIPTION": "Zatrzymałeś aktualizacje Signal0ne do wersji PRO",
+    "GO_BACK_TO_DASHBOARD": "Wróć do listy incydentów"
   }
 }

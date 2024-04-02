@@ -52,6 +52,12 @@ export class AuthStateService implements OnDestroy {
     this.userData$.next(value);
   }
 
+  public set userDataProVersion(value: boolean) {
+    const userData = {... this.userData };
+    userData.isPro = value;
+    this.userData = userData;
+  }
+
   public ngOnDestroy(): void {
     this.cancelTokenRefreshSchedule();
   }
@@ -280,6 +286,6 @@ export class AuthStateService implements OnDestroy {
   private decodeTokenToUserData(accessToken: string) {
     const decodedToken = jwtDecode(accessToken);
     // @ts-ignore
-    this.userData = new UserDataDTO(decodedToken['id'] ,decodedToken['userName'])
+    this.userData = new UserDataDTO(decodedToken['id'], decodedToken['userName'], decodedToken['isPro'])
   }
 }
