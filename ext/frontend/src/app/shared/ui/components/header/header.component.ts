@@ -19,6 +19,7 @@ export class HeaderComponent {
   public LanguageVersion: typeof LanguageVersion = LanguageVersion;
   public activeLanguage$: Observable<LanguageVersion>;
   public isLoggedIn$: Observable<boolean>;
+  public isProVisible: boolean = false;
 
   constructor(
     private languageService: LangugageService,

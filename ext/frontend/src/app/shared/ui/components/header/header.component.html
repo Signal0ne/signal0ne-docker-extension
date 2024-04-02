@@ -12,7 +12,7 @@
     ></svg-icon>
   </a>
   <div class="d-flex align-items-center controls-container">
-    <button *ngIf="isLoggedIn$ | async" class="btn btn-pro" (click)="openProInfoModal()" [matTooltip]="'UI.HEADER.PRO_BUTTON_TOOLTIP' | translate">{{'UI.HEADER.PRO_BUTTON' | translate}}</button>
+    <button *ngIf="(isLoggedIn$ | async) && isProVisible" class="btn btn-pro" (click)="openProInfoModal()" [matTooltip]="'UI.HEADER.PRO_BUTTON_TOOLTIP' | translate">{{'UI.HEADER.PRO_BUTTON' | translate}}</button>
     <i
       class="bi bi-headset contact-icon"
       (click)="openContactModal()"
