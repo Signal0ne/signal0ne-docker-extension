@@ -45,7 +45,7 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 			logString := ""
 			severity := "INFO"
 			defer wg.Done()
-			container, err := dockerClient.ContainerInspect(context.Background(), containerDefinition.ID)
+			_, err := dockerClient.ContainerInspect(context.Background(), containerDefinition.ID)
 			if err != nil {
 				logger.Errorf("Failed to inspect container %s: %v", containerDefinition.ID, err)
 				return
@@ -68,16 +68,6 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 			}
 			mutex.RUnlock()
 
-			isErrorState = checkContainerErrorState(container.State)
-			if isErrorState && logString != "" {
-				severity = "CRITICAL"
-				err := helpers.CallLogAnalysis(logString, containerDefinition.Names[0], containerDefinition.ID, severity, taskPayload)
-				if err != nil {
-					logger.Errorf("Failed to call log analysis for container %s: %v", containerDefinition.Names[0], err)
-				}
-				return
-			}
-
 			isErrorState, severity = checkLogsForIssue(logString)
 			if isErrorState {
 				err := helpers.CallLogAnalysis(logString, containerDefinition.Names[0], containerDefinition.ID, severity, taskPayload)
@@ -98,11 +88,6 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 		}
 	}
 	mutex.RUnlock()
-}
-
-func checkContainerErrorState(state *types.ContainerState) bool {
-	return (state.Error != "" ||
-		(!state.Running && state.ExitCode != 0))
 }
 
 func checkLogsForIssue(logs string) (matched bool, severity string) {
