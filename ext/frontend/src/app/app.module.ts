@@ -10,7 +10,6 @@ import { AlertConfig } from 'ngx-bootstrap/alert';
 import { BsDatepickerConfig, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ToastrModule } from 'ngx-toastr';
-import { VersionsUpdateRoutingModule } from 'app/features/versions-update/versions-update-routing.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,8 +37,7 @@ import { SharedModule } from './shared/SharedModule';
       extendedTimeOut: moment.duration(3, 'seconds').as('milliseconds'),
       enableHtml: true
     }),
-    AuthModule,
-    VersionsUpdateRoutingModule
+    AuthModule
   ],
   providers: [ AlertConfig, BsDatepickerConfig],
   bootstrap: [ AppComponent ],
