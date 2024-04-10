@@ -19,7 +19,8 @@
     "EMAIL_ALREADY_IN_USE": "Email address is already in use",
     "INVALID_VERIFICATION_TOKEN": "Invalid verification token",
     "VERIFICATION_TOKEN_EXPIRED": "Verification token expired",
-    "EMAIL_NOT_FOUND": "Email address not found"
+    "EMAIL_NOT_FOUND": "Email address not found",
+    "VERSION_UPGRADE_ERROR": "Something went wrong upgrading your Signal0ne version to PRO. Please try again."
   },
   "ENUM": {
     "ISSUE_TYPE": {
@@ -42,7 +43,7 @@
       "PL_FLAG_ALT": "Polish flag",
       "CONTACT_US": "Contact us",
       "PRO_BUTTON": "PRO",
-      "PRO_BUTTON_TOOLTIP": "Update your Signal0ne one version to PRO"
+      "PRO_BUTTON_TOOLTIP": "Update your Signal0ne version to PRO"
     },
     "CONTACT_POPUP": {
       "CONTACT": "Contact",
@@ -126,6 +127,13 @@
       "CHAT": {
         "ASK_MODEL": "Ask model"
       }
+    },
+    "PAYMENTS": {
+      "SUCCESS": "Upgrade success",
+      "SUCCESS_DESCRIPTION": "You can now enjoy our pro features.",
+      "CANCEL": "Upgrade cancel",
+      "CANCEL_DESCRIPTION": "You have canceled Signal0ne pro version upgrade.",
+      "GO_BACK_TO_DASHBOARD": "Go back to dashboard"
     }
   }
 }

@@ -20,8 +20,8 @@ export class VersionUpdatePopupComponent {
       currency: 'eur',
       amount: environment.proAccountPrice * 100,
       quantity: 1,
-      cancelUrl: 'http://localhost:37001/cancel',
-      successUrl: 'http://localhost:37001/success',
+      cancelUrl: 'http://localhost:37001/version-update/cancel',
+      successUrl: 'http://localhost:37001/version-update/success',
     };
       const stripe = await this.stripePromise;
       this.http
