@@ -37,8 +37,6 @@ export class RegisterComponent implements OnInit{
     this.registrationForm.markAsDirty();
     this.registrationForm.markAllAsTouched();
     if (this.registrationForm.valid) {
-      this.router.navigateByUrl('/login');
-      this.toastrService.success(this.translateService.instant('AUTH.EMAIL_VERIFICATION_LINK_SENT'));
       this.authService.register(this.registrationForm.get('email').value, this.registrationForm.get('password').value).subscribe(() => {
         this.router.navigateByUrl('/login');
         this.toastrService.success(this.translateService.instant('AUTH.EMAIL_VERIFICATION_LINK_SENT'));

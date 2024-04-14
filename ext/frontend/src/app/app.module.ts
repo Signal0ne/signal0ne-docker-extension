@@ -8,7 +8,6 @@ import { TranslateConfig } from 'app/config/TranslateConfig';
 import * as moment from 'moment';
 import { AlertConfig } from 'ngx-bootstrap/alert';
 import { BsDatepickerConfig, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
