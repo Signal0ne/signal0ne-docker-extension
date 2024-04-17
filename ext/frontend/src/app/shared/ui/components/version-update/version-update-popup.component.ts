@@ -1,3 +1,4 @@
+import { ApplicationStateService } from 'app/shared/services/application-state.service';
 import { DialogRef } from '@angular/cdk/dialog';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -10,9 +11,30 @@ import { environment } from 'environment/environment.development';
   styleUrls: ['./version-update-popup.component.scss'],
 })
 export class VersionUpdatePopupComponent {
-  public readonly price: number = environment.proAccountPrice;
-  public stripePromise: Promise<Stripe> = loadStripe(environment.stripePublicKey);
-  constructor(private dialogRef: DialogRef, private http: HttpClient) {}
+  private locale = this.languageService.language === 'pl' ? 'pl-PL' : 'en-US';
+
+  public readonly price: string = new Intl.NumberFormat(this.locale, {
+    currency: 'EUR',
+    style: 'currency',
+  }).format(environment.proAccountPrice);
+
+  public stripePromise: Promise<Stripe> = loadStripe(
+    environment.stripePublicKey
+  );
+
+  constructor(
+    private dialogRef: DialogRef,
+    private http: HttpClient,
+    private languageService: ApplicationStateService
+  ) {}
+
+  public async openBillingPortal(): Promise<void> {
+    this.http
+      .get(`${environment.apiUrl}/user/manage-pro`)
+      .subscribe((data: any) => {
+        window.location.href = data.url;
+      });
+  }
 
   public async tryProUpdate(): Promise<void> {
     const payment = {
@@ -23,14 +45,14 @@ export class VersionUpdatePopupComponent {
       cancelUrl: 'http://localhost:37001/version-update/cancel',
       successUrl: 'http://localhost:37001/version-update/success',
     };
-      const stripe = await this.stripePromise;
-      this.http
-        .post(`${environment.apiUrl}/user/upgrade-pro`, payment)
-        .subscribe((data: any) => {
-          stripe.redirectToCheckout({
-            sessionId: data.id,
-          });
-    });
+    const stripe = await this.stripePromise;
+    this.http
+      .post(`${environment.apiUrl}/user/upgrade-pro`, payment)
+      .subscribe((data: any) => {
+        stripe.redirectToCheckout({
+          sessionId: data.id,
+        });
+      });
   }
 
   public close(): void {
