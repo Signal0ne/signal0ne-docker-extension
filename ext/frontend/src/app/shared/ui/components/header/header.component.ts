@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthStateService } from 'app/auth/services/auth-state.service';
 import { LanguageVersion } from 'app/shared/enum/LanguageVersion';
+import { UserDataDTO } from 'app/shared/interfaces/UserDataDTO';
 import { ApplicationStateService } from 'app/shared/services/application-state.service';
 import { ConfigurationService } from 'app/shared/services/configuration.service';
 import { LangugageService } from 'app/shared/services/language.service';
@@ -20,6 +21,7 @@ export class HeaderComponent {
   public activeLanguage$: Observable<LanguageVersion>;
   public isLoggedIn$: Observable<boolean>;
   public isProVisible: boolean = false;
+  public userData$: Observable<UserDataDTO>;
 
   constructor(
     private languageService: LangugageService,
@@ -31,6 +33,7 @@ export class HeaderComponent {
   ) {
     this.activeLanguage$ = this.applicationStateService.language$;
     this.isLoggedIn$ = this.authStateService.isLoggedIn$;
+    this.userData$ = this.authStateService.userData$;
   }
 
   public changeLanguage(language: LanguageVersion): void {

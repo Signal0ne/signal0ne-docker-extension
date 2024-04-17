@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { environment } from 'environment/environment';
-import { AgentStateDTO } from '../interfaces/AgentStateDTO';
-import { ToastrService } from 'ngx-toastr';
+import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'environment/environment';
+import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs';
 import { agentAuthDataDTO } from '../interfaces/AgentAuthDataDTO';
+import { AgentStateDTO } from '../interfaces/AgentStateDTO';
 
 @Injectable({ providedIn: 'root' })
 export class ConfigurationService {
@@ -43,6 +43,14 @@ export class ConfigurationService {
       }
       this.isAgentInitialized = true;
     });
+  }
+
+  public openBillingPortal(): void {
+    this.httpClient
+      .get(`${environment.apiUrl}/user/manage-pro`)
+      .subscribe((data: any) => {
+        window.location.href = data.url;
+      });
   }
 
   public setAgentAuthData(agentAuthData: agentAuthDataDTO): void {

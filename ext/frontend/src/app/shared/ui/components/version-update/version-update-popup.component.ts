@@ -5,6 +5,10 @@ import { Component } from '@angular/core';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { environment } from 'environment/environment.development';
 
+interface Benefit {
+  hasTooltip: boolean;
+}
+
 @Component({
   selector: 'app-version-update-popup',
   templateUrl: './version-update-popup.component.html',
@@ -21,20 +25,20 @@ export class VersionUpdatePopupComponent {
   public stripePromise: Promise<Stripe> = loadStripe(
     environment.stripePublicKey
   );
+  public benefits: Benefit[] = [
+    {
+      hasTooltip: true
+    },
+    {
+      hasTooltip: false
+    }
+  ];
 
   constructor(
     private dialogRef: DialogRef,
     private http: HttpClient,
     private languageService: ApplicationStateService
   ) {}
-
-  public async openBillingPortal(): Promise<void> {
-    this.http
-      .get(`${environment.apiUrl}/user/manage-pro`)
-      .subscribe((data: any) => {
-        window.location.href = data.url;
-      });
-  }
 
   public async tryProUpdate(): Promise<void> {
     const payment = {

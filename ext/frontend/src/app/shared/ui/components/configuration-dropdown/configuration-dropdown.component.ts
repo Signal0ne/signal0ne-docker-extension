@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AgentStateDTO } from 'app/shared/interfaces/AgentStateDTO';
 import { ConfigurationService } from 'app/shared/services/configuration.service';
@@ -18,6 +18,10 @@ export class ConfigurationDropdownComponent {
 
   public setAgentState(): void {
     this.configurationService.setAgentState(this.agentState);
+  }
+
+  public openBillingPortal(): void {
+    this.configurationService.openBillingPortal();
   }
 
 }

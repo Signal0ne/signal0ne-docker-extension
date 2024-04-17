@@ -4,9 +4,11 @@
         <i class="bi bi-gear"></i>
     </button>
     <div class="dropdown-menu" #dropdownMenu>
-        <div class="form-group mb-3">
+        <div class="form-group mb-5">
+            <h3 class="mb-0">{{'UI.CONFIGURATION_DROPDOWN.AGENT' | translate}}</h3>
+            <div class="section-divider"></div>
             <label class="form-label"
-                   for="agentState">{{'UI.CONFIGURATION_DROPDOWN.AGENT_STATE' | translate}}</label>
+                   for="agentState">{{'UI.CONFIGURATION_DROPDOWN.STATUS' | translate}}</label>
             <div class="agent-state-toggle">
             <mat-slide-toggle
                     name="agentState"
@@ -14,6 +16,18 @@
                     [(ngModel)]="agentState.state"
                     (ngModelChange)="setAgentState()"></mat-slide-toggle>
             </div>
+        </div>
+
+        <div class="form-group mb-0">
+            <h3 class="mb-0">{{'UI.CONFIGURATION_DROPDOWN.ACCOUNT' | translate}}</h3>
+            <div class="section-divider"></div>
+            <button
+                    type="button"
+                    class="btn btn-primary mx-auto"
+                    (click)="openBillingPortal()"
+            >
+                {{ "UI.PRO_VERSION_POPUP.MANAGE" | translate }}
+            </button>
         </div>
     </div>
 </div>
