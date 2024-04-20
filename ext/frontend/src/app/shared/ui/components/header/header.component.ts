@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthStateService } from 'app/auth/services/auth-state.service';
 import { LanguageVersion } from 'app/shared/enum/LanguageVersion';
+import { UserDataDTO } from 'app/shared/interfaces/UserDataDTO';
 import { ApplicationStateService } from 'app/shared/services/application-state.service';
 import { ConfigurationService } from 'app/shared/services/configuration.service';
 import { LangugageService } from 'app/shared/services/language.service';
@@ -18,9 +20,9 @@ import { Observable } from 'rxjs';
 export class HeaderComponent {
   public LanguageVersion: typeof LanguageVersion = LanguageVersion;
   public activeLanguage$: Observable<LanguageVersion>;
-  public isLoggedIn$: Observable<boolean>;
   public isProVisible: boolean = false;
-
+  public isPro: boolean;
+  public isLoggedIn: boolean
   constructor(
     private languageService: LangugageService,
     private applicationStateService: ApplicationStateService,
@@ -30,7 +32,8 @@ export class HeaderComponent {
     private router: Router
   ) {
     this.activeLanguage$ = this.applicationStateService.language$;
-    this.isLoggedIn$ = this.authStateService.isLoggedIn$;
+    this.authStateService.userData$.pipe(takeUntilDestroyed()).subscribe(({isPro}) => this.isPro = isPro)
+    this.authStateService.isLoggedIn$.pipe(takeUntilDestroyed()).subscribe((isLoggedIn) => this.isLoggedIn = isLoggedIn);
   }
 
   public changeLanguage(language: LanguageVersion): void {

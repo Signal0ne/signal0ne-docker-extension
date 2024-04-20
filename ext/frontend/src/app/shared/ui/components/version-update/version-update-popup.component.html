@@ -12,30 +12,30 @@
     </button>
   </div>
   <div class="modal-body">
-    <h5 class="price">
-      {{ "UI.PRO_VERSION_POPUP.PRO_VERSION_PRICE" | translate }}: {{ price }}
+    <h5 class="price text-center">
+      {{ price }} {{ "UI.PRO_VERSION_POPUP.PER_MONTH" | translate }}
     </h5>
+    <div class="w-100 d-block">
+      <button
+              type="button"
+              class="btn btn-primary w-50 my-5 d-block"
+              (click)="tryProUpdate()"
+      >
+        {{ "UI.PRO_VERSION_POPUP.UPGRADE" | translate }}
+      </button>
+    </div>
+    <div class="section-divider"></div>
     <h6 class="what-you-get my-3">
-      {{ "UI.PRO_VERSION_POPUP.WHAT_WILL_YOU_GET" | translate }}
+      {{ "UI.PRO_VERSION_POPUP.MOST_IMPORTANT_FUNCTIONS" | translate }}
     </h6>
-    <ul>
-      <li>{{ "UI.PRO_VERSION_POPUP.PRO_VERSION_BENEFIT_1" | translate }}</li>
+    <ul class="ps-0">
+      <li class="mt-1" *ngFor="let benefit of benefits; let i = index">
+        <div class="d-flex">
+          <i class="bi bi-check me-2"></i>
+          {{ ("UI.PRO_VERSION_POPUP.PRO_VERSION_BENEFIT_" + (i + 1)) | translate }}
+          <i class="bi bi-question-circle d-block ms-auto" *ngIf="benefit.hasTooltip" [matTooltip]="('UI.PRO_VERSION_POPUP.PRO_VERSION_BENEFIT_TOOLTIP_' + (i + 1)) | translate"></i>
+        </div>
+      </li>
     </ul>
-  </div>
-  <div class="modal-footer flex-column mt-4">
-    <button
-      type="button"
-      class="btn btn-primary mx-auto w-50"
-      (click)="openBillingPortal()"
-    >
-      {{ "UI.PRO_VERSION_POPUP.UPGRADE" | translate }}
-    </button>
-    <button
-      type="button"
-      class="btn btn-primary mt-4 mx-auto w-50"
-      (click)="openBillingPortal()"
-    >
-      {{ "UI.PRO_VERSION_POPUP.MANAGE" | translate }}
-    </button>
   </div>
 </div>

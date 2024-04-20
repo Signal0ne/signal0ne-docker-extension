@@ -43,7 +43,8 @@
       "PL_FLAG_ALT": "Polish flag",
       "CONTACT_US": "Contact us",
       "PRO_BUTTON": "PRO",
-      "PRO_BUTTON_TOOLTIP": "Upgrade Signal0ne to PRO version"
+      "PRO_BUTTON_TOOLTIP": "Upgrade Signal0ne to PRO version",
+      "PRO_BADGE_TOOLTIP": "You are PRO"
     },
     "CONTACT_POPUP": {
       "CONTACT": "Contact",
@@ -62,15 +63,22 @@
       "MESSAGE_SEND_SUCCESS": "Message successfully sent"
     },
     "PRO_VERSION_POPUP": {
-      "PRO_VERSION": "Version PRO",
+      "PRO_VERSION": "PRO",
       "PRO_VERSION_PRICE": "Price",
+      "PER_MONTH": "/ month",
       "WHAT_WILL_YOU_GET": "What will you get ?",
-      "PRO_VERSION_BENEFIT_1": "Pro version benefit 1 placeholder",
-      "MANAGE": "Manage your subscription",
-      "UPGRADE": "Upgrade"
+      "PRO_VERSION_BENEFIT_1": "Pro version benefit 1 placeholder dsa dsadsads adsa dsa dsa dasds a",
+      "PRO_VERSION_BENEFIT_TOOLTIP_1": "Pro version benefit 1 tooltip",
+      "PRO_VERSION_BENEFIT_2": "Pro version benefit 2 placeholder",
+      "MANAGE": "Manage subscription",
+      "UPGRADE": "Upgrade",
+      "MOST_IMPORTANT_FUNCTIONS": "Most important functions"
     },
     "CONFIGURATION_DROPDOWN": {
-      "AGENT_STATE": "Agent status"
+      "AGENT_STATE": "Agent status",
+      "AGENT": "Agent",
+      "STATUS": "Status",
+      "ACCOUNT": "Account"
     }
   },
   "CONFIGURATION": {
