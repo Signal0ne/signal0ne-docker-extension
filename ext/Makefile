@@ -11,6 +11,13 @@ INFO_COLOR = \033[0;36m
 NO_COLOR   = \033[m
 BACKEND_NETWORK?=backend_default #for local development only
 
+dev-build-app: ## Build service image - dev version
+	docker build --tag=$(IMAGE):$(TAG) -f ./agent/agent.Dockerfile ./agent
+	docker build --tag=$(FRONTEND_IMAGE):$(TAG) -f ./frontend/dev.Dockerfile ./frontend
+
+dev-start-app:
+	docker compose -f ./docker-compose.dev.yaml up -d
+
 build-extension: build-extension-dependencies ## Build service image to be deployed as a desktop extension
 	docker build --tag=$(IMAGE):$(TAG) .
 
