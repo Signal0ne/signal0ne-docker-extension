@@ -14,6 +14,6 @@ export class MetricsService {
   }
 
   public markProVersionCheckouts(): Observable<void> {
-    return this.httpClient.get<void>(`${environment.apiUrl}/metrics/pro-checkouts-clicks`)
+    return this.httpClient.get<void>(`${environment.apiUrl}/metrics/pro-checkout-clicks`)
   }
 }
