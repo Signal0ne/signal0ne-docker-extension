@@ -3,6 +3,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
+import { MetricsService } from 'app/shared/services/metrics.service';
 import { environment } from 'environment/environment.development';
 
 interface Benefit {
@@ -37,10 +38,12 @@ export class VersionUpdatePopupComponent {
   constructor(
     private dialogRef: DialogRef,
     private http: HttpClient,
-    private languageService: ApplicationStateService
+    private languageService: ApplicationStateService,
+    private metricsService: MetricsService
   ) {}
 
   public async tryProUpdate(): Promise<void> {
+    this.metricsService.markProVersionCheckouts().subscribe();
     const payment = {
       name: 'Signal0ne Pro',
       currency: 'eur',
