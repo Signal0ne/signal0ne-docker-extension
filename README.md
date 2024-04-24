@@ -19,14 +19,6 @@ cp ext/agent/.env.template ext/agent/.default.env
 
 ### Extension
 
-**For development (using hot reload) :**
-
-```
-make --directory=./ext dev-build-app
-
-make --directory=./ext dev-start-app
-```
-
 **For Building:**
 
 ```
