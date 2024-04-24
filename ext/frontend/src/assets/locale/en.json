@@ -72,13 +72,19 @@
       "PRO_VERSION_BENEFIT_2": "Pro version benefit 2 placeholder",
       "MANAGE": "Manage subscription",
       "UPGRADE": "Upgrade",
-      "MOST_IMPORTANT_FUNCTIONS": "Most important functions"
+      "MOST_IMPORTANT_FUNCTIONS": "Most important functions",
+      "FREE_30_DAYS_TRIAL": "Free 30 days trial and then",
+      "UNSUBSCRIBE_ANYTIME": "Cancel any time"
     },
     "CONFIGURATION_DROPDOWN": {
       "AGENT_STATE": "Agent status",
       "AGENT": "Agent",
       "STATUS": "Status",
       "ACCOUNT": "Account"
+    },
+    "FEEDBACK_POPUP": {
+      "TITLE": "Rate your experience",
+      "BUTTON_TEXT": "Send feedback"
     }
   },
   "CONFIGURATION": {

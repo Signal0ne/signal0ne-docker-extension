@@ -5,6 +5,7 @@
   .modal-header {
     align-items: center;
     display: flex;
+    justify-content: space-between;
     margin-bottom: 1.5rem;
 
     .bi-x {
@@ -21,13 +22,12 @@
     .modal-title {
       color: var(--primary);
       font-size: 30px;
-      margin-left: calc(50% - 32px);
     }
   }
 
   .modal-body {
     .price {
-      font-size: 22px;
+      font-size: 32px;
       color: var(--primary)
     }
 
@@ -46,6 +46,8 @@
     height: 1.5rem;
     justify-content: center;
     width: 1.5rem;
+    position: absolute;
+    right: 40px;
   }
 
   .btn-primary {
@@ -71,6 +73,15 @@
 
     .bi-question-circle {
       color: var(--primary);
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: var(--grey);
+
+    &.free-trial {
+      color: var(--black);
     }
   }
 }

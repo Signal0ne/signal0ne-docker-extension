@@ -1,0 +1,36 @@
+.feedback-container {
+  border: 2px solid var(--primary);
+  padding: 16px;
+  position: absolute;
+  top: 82px;
+  right: 32px;
+  z-index: 1000;
+  border-radius: 16px;
+  background-color: var(--strong-white);
+
+  .emoji-icon {
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+
+    &.selected {
+      color: var(--green);
+    }
+  }
+
+  .close-button {
+    position: absolute;
+    align-items: center;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    font-size: 20px;
+    height: 1.5rem;
+    justify-content: center;
+    width: 1.5rem;
+    background-color: var(--strong-white) !important;
+    z-index: 10000000;
+    top: -.5rem;
+    right: -.5rem;
+  }
+}

@@ -16,4 +16,8 @@ export class MetricsService {
   public markProVersionCheckouts(): Observable<void> {
     return this.httpClient.get<void>(`${environment.apiUrl}/metrics/pro-checkout-clicks`)
   }
+
+  public sendFeedbackRating(overallScore: number): Observable<void> {
+    return this.httpClient.post<void>(`${environment.apiUrl}/metrics/overall-score`, {overallScore})
+  }
 }

@@ -286,6 +286,6 @@ export class AuthStateService implements OnDestroy {
   private decodeTokenToUserData(accessToken: string) {
     const decodedToken = jwtDecode(accessToken);
     // @ts-ignore
-    this.userData = new UserDataDTO(decodedToken['id'], decodedToken['userName'], decodedToken['isPro'])
+    this.userData = new UserDataDTO(decodedToken['id'], decodedToken['userName'], decodedToken['isPro'], decodedToken['canRateApplication'])
   }
 }

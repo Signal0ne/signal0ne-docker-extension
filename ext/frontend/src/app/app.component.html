@@ -2,6 +2,7 @@
 <!--LOADER COMPONENT CONTAINED WITH SOME KIND OF PER REQUEST INTERCEPTOR-->
 <app-header></app-header>
 <div id="main-content">
+    <app-feedback-rating *ngIf="isFeedbackVisible && canUserRateApplication" (sendFeedback)="sendFeedback($event)" (hideModal)="hideFeedback()"></app-feedback-rating>
     <router-outlet></router-outlet>
 </div>
 <app-loader *ngIf="isLoading$ | async"></app-loader>

@@ -14,6 +14,7 @@ import {
   ConfigurationDropdownComponent
 } from 'app/shared/ui/components/configuration-dropdown/configuration-dropdown.component';
 import { ContactPopupComponent } from 'app/shared/ui/components/contact/contact-popup.component';
+import { FeedbackRatingComponent } from 'app/shared/ui/components/feedback-rating/feedback-rating.component';
 import { VersionUpdatePopupComponent } from 'app/shared/ui/components/version-update/version-update-popup.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { HeaderComponent } from './ui/components/header/header.component';
@@ -26,7 +27,8 @@ import { LoaderComponent } from './ui/components/loader/loader.component';
     ConfigurationDropdownComponent,
     ContactPopupComponent,
     InputPasswordToggleDirective,
-    VersionUpdatePopupComponent
+    VersionUpdatePopupComponent,
+    FeedbackRatingComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,8 @@ import { LoaderComponent } from './ui/components/loader/loader.component';
     ConfigurationDropdownComponent,
     ContactPopupComponent,
     InputPasswordToggleDirective,
-    VersionUpdatePopupComponent
+    VersionUpdatePopupComponent,
+    FeedbackRatingComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
