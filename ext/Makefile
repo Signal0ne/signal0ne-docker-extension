@@ -12,7 +12,7 @@ NO_COLOR   = \033[m
 BACKEND_NETWORK?=backend_default #for local development only
 
 dev-build-app: ## Build service image - dev version
-	docker build --tag=$(IMAGE):$(TAG) -f ./agent/agent.Dockerfile ./agent
+	docker build --tag=$(IMAGE):$(TAG) -f ./dev.Dockerfile .
 	docker build --tag=$(FRONTEND_IMAGE):$(TAG) -f ./frontend/dev.Dockerfile ./frontend
 
 dev-start-app:
