@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AuthStateService } from 'app/auth/services/auth-state.service';
 import { AgentStateDTO } from 'app/shared/interfaces/AgentStateDTO';
+import { ApplicationStateService } from 'app/shared/services/application-state.service';
 import { ConfigurationService } from 'app/shared/services/configuration.service';
 
 @Component({
@@ -10,9 +12,13 @@ import { ConfigurationService } from 'app/shared/services/configuration.service'
 })
 export class ConfigurationDropdownComponent {
   public agentState: AgentStateDTO;
-  constructor(private configurationService: ConfigurationService) {
+  public isPro: boolean;
+  constructor(private configurationService: ConfigurationService, private authStateService: AuthStateService) {
     this.configurationService.currentAgentState$.pipe(takeUntilDestroyed()).subscribe(state => {
       this.agentState = new AgentStateDTO(state)
+    });
+    this.authStateService.userData$.pipe(takeUntilDestroyed()).subscribe(({ isPro }) => {
+      this.isPro = isPro
     });
   }
 

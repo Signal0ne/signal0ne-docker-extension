@@ -35,8 +35,13 @@
 
 .btn {
   border-radius: 16px;
-  padding: 8px;
+  padding: 8px 12px;
   transition: .5s;
+
+  &:disabled {
+    background-color: var(--light-gray);
+    border: none !important;
+  }
 
   &-secondary {
     border: 1px solid var(--primary);

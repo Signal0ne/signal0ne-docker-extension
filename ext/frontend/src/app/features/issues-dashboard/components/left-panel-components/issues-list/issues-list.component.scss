@@ -3,20 +3,6 @@
   overflow-x: hidden;
   height: calc(100vh - 320px);
 
-  &::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #e4e4e4;
-    border-radius: 100px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
-    border-radius: 100px
-  }
-
   &.extra-padding {
     padding-right: 12px;
   }

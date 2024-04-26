@@ -1,0 +1,14 @@
+<div class="feedback-container">
+    <button type="button" class="close-button btn btn-secondary ms-auto" (click)="hideModal.emit()">
+        <i class="bi bi-x"></i>
+    </button>
+    <h3 class="text-center mb-0 mt-2">{{'UI.FEEDBACK_POPUP.TITLE' | translate}}</h3>
+    <div class="d-flex justify-content-around my-4">
+        <i class="bi emoji-icon bi-emoji-angry" [ngClass]="selectedIndex === 1 ? 'selected' : ''" (click)="selectIndex(1)"></i>
+        <i class="bi emoji-icon bi-emoji-frown" [ngClass]="selectedIndex === 2 ? 'selected' : ''" (click)="selectIndex(2)"></i>
+        <i class="bi emoji-icon bi-emoji-expressionless" [ngClass]="selectedIndex === 3 ? 'selected' : ''" (click)="selectIndex(3)"></i>
+        <i class="bi emoji-icon bi-emoji-smile" [ngClass]="selectedIndex === 4 ? 'selected' : ''" (click)="selectIndex(4)"></i>
+        <i class="bi emoji-icon bi-emoji-grin" [ngClass]="selectedIndex === 5 ? 'selected' : ''" (click)="selectIndex(5)"></i>
+    </div>
+    <button class="d-block mx-auto btn btn-primary" [disabled]="!selectedIndex" (click)="sendFeedback.emit(selectedIndex)">{{'UI.FEEDBACK_POPUP.BUTTON_TEXT' | translate}}</button>
+</div>

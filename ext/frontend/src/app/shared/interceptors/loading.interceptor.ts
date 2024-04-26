@@ -10,7 +10,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   }
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
-    if (!req.url.includes('token/refresh') && !req.urlWithParams.includes('revokeLoader=true')) {
+    if (!req.url.includes('token/refresh') && !req.urlWithParams.includes('revokeLoader=true') && !req.urlWithParams.includes('metrics')) {
       this.applicationStateService.isLoading = true;
       return next.handle(req).pipe(
         finalize(() => this.applicationStateService.isLoading = false),

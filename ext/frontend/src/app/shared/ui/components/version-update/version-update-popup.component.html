@@ -1,6 +1,6 @@
 <div class="price-modal">
   <div class="modal-header">
-    <h2 class="modal-title mb-0">
+    <h2 class="modal-title w-100 text-center mb-0">
       {{ "UI.PRO_VERSION_POPUP.PRO_VERSION" | translate }}
     </h2>
     <button
@@ -12,13 +12,15 @@
     </button>
   </div>
   <div class="modal-body">
-    <h5 class="price text-center">
+    <p class="mb-0 free-trial text-center">{{ "UI.PRO_VERSION_POPUP.FREE_30_DAYS_TRIAL" | translate }}</p>
+    <h5 class="price text-center my-4">
       {{ price }} {{ "UI.PRO_VERSION_POPUP.PER_MONTH" | translate }}
     </h5>
+    <p class="text-center mb-0">{{ "UI.PRO_VERSION_POPUP.UNSUBSCRIBE_ANYTIME" | translate }}</p>
     <div class="w-100 d-block">
       <button
               type="button"
-              class="btn btn-primary w-50 my-5 d-block"
+              class="btn btn-primary w-50 my-4 d-block"
               (click)="tryProUpdate()"
       >
         {{ "UI.PRO_VERSION_POPUP.UPGRADE" | translate }}

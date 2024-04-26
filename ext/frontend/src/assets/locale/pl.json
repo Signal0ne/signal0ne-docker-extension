@@ -72,13 +72,19 @@
       "MANAGE": "Zarządzaj subskrypcją",
       "UPGRADE": "Aktualizuj",
       "MOST_IMPORTANT_FUNCTIONS": "Most important functions",
-      "PER_MONTH": "/ miesiąc"
+      "PER_MONTH": "/ miesiąc",
+      "FREE_30_DAYS_TRIAL": "Darmowy 30 dniowy okres próbny, a potem",
+      "UNSUBSCRIBE_ANYTIME": "Zawsze możesz zrezygnować z subskrypcji"
     },
     "CONFIGURATION_DROPDOWN": {
       "AGENT_STATE": "Stan agenta",
       "AGENT": "Agent",
       "STATUS": "Status",
       "ACCOUNT": "Konto"
+    },
+    "FEEDBACK_POPUP": {
+      "TITLE": "Oceń swoje doświadczenia",
+      "BUTTON_TEXT": "Prześlij opinie"
     }
   },
   "CONFIGURATION": {

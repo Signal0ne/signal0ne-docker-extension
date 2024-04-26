@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { AuthStateService } from 'app/auth/services/auth-state.service';
 import { LanguageVersion } from 'app/shared/enum/LanguageVersion';
-import { UserDataDTO } from 'app/shared/interfaces/UserDataDTO';
 import { ApplicationStateService } from 'app/shared/services/application-state.service';
 import { ConfigurationService } from 'app/shared/services/configuration.service';
 import { LangugageService } from 'app/shared/services/language.service';
+import { MetricsService } from 'app/shared/services/metrics.service';
 import { ContactPopupComponent } from 'app/shared/ui/components/contact/contact-popup.component';
 import { VersionUpdatePopupComponent } from 'app/shared/ui/components/version-update/version-update-popup.component';
 import { Observable } from 'rxjs';
@@ -29,7 +28,7 @@ export class HeaderComponent {
     protected configurationService: ConfigurationService,
     private authStateService: AuthStateService,
     private dialog: MatDialog,
-    private router: Router
+    private metricsService: MetricsService
   ) {
     this.activeLanguage$ = this.applicationStateService.language$;
     this.authStateService.userData$.pipe(takeUntilDestroyed()).subscribe(({isPro}) => this.isPro = isPro)
@@ -61,6 +60,7 @@ export class HeaderComponent {
   }
 
   public openProInfoModal(): void {
+    this.metricsService.markProButtonClick().subscribe();
     this.dialog.open(VersionUpdatePopupComponent, {
       width: '500px',
     });
