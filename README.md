@@ -18,6 +18,9 @@ cp ext/agent/.env.template ext/agent/.default.env
 ```
 
 ### Extension
+
+**For Building:**
+
 ```
 #Build extension(both agent and frontend)
 make --directory=./ext build-extension
