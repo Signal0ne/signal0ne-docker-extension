@@ -12,25 +12,74 @@
     font-size: 1.5rem;
     color: var(--black);
     cursor: pointer;
-
-    &.selected {
-      color: var(--green);
-    }
   }
 
   .close-button {
     position: absolute;
     align-items: center;
     border: 1px solid var(--primary);
-    border-radius: 50%;
     display: flex;
     font-size: 20px;
-    height: 1.5rem;
+    height: 28px;
     justify-content: center;
-    width: 1.5rem;
+    width: 28px;
     background-color: var(--strong-white) !important;
     z-index: 10000000;
     top: -.5rem;
     right: -.5rem;
+
+    &:hover {
+      background-color: var(--primary) !important;
+    }
+  }
+
+  .rate-1 {
+    &:hover {
+      color: var(--color-critical);
+    }
+
+    &.selected {
+      color: var(--color-critical);
+    }
+  }
+
+  .rate-2 {
+    &:hover {
+      color: var(--orange);
+    }
+
+    &.selected {
+      color: var(--orange);
+    }
+  }
+
+  .rate-3 {
+    &:hover {
+      color: var(--color-warning);
+    }
+
+    &.selected {
+      color: var(--color-warning);
+    }
+  }
+
+  .rate-4 {
+    &:hover {
+      color: var(--green);
+    }
+
+    &.selected {
+      color: var(--green);
+    }
+  }
+
+  .rate-5 {
+    &:hover {
+      color: var(--dark-green);
+    }
+
+    &.selected {
+      color: var(--dark-green);
+    }
   }
 }
