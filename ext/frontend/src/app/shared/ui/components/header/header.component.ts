@@ -31,7 +31,7 @@ export class HeaderComponent {
     private metricsService: MetricsService
   ) {
     this.activeLanguage$ = this.applicationStateService.language$;
-    this.authStateService.userData$.pipe(takeUntilDestroyed()).subscribe(({isPro}) => this.isPro = isPro)
+    this.authStateService.userData$.pipe(takeUntilDestroyed()).subscribe((userData) => this.isPro = !!userData?.isPro)
     this.authStateService.isLoggedIn$.pipe(takeUntilDestroyed()).subscribe((isLoggedIn) => this.isLoggedIn = isLoggedIn);
   }
 
