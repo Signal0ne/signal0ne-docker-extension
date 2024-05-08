@@ -5,19 +5,30 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MetricsService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) {
+  public copySourcesLinkClick(issueId: string): Observable<void> {
+    return this.httpClient.get<void>(
+      `${environment.apiUrl}/user/issues/${issueId}/metrics/copied-sources-links`
+    );
   }
 
   public markProButtonClick(): Observable<void> {
-    return this.httpClient.get<void>(`${environment.apiUrl}/metrics/pro-btn-clicks`)
+    return this.httpClient.get<void>(
+      `${environment.apiUrl}/metrics/pro-btn-clicks`
+    );
   }
 
   public markProVersionCheckouts(): Observable<void> {
-    return this.httpClient.get<void>(`${environment.apiUrl}/metrics/pro-checkout-clicks`)
+    return this.httpClient.get<void>(
+      `${environment.apiUrl}/metrics/pro-checkout-clicks`
+    );
   }
 
   public sendFeedbackRating(overallScore: number): Observable<void> {
-    return this.httpClient.post<void>(`${environment.apiUrl}/metrics/overall-score`, {overallScore})
+    return this.httpClient.post<void>(
+      `${environment.apiUrl}/metrics/overall-score`,
+      { overallScore }
+    );
   }
 }
