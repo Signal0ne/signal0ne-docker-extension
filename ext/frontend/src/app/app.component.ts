@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
+import { AuthStateService } from 'app/auth/services/auth-state.service';
 import { ApplicationStateService } from 'app/shared/services/application-state.service';
+import { ConfigurationService } from 'app/shared/services/configuration.service';
 import { MetricsService } from 'app/shared/services/metrics.service';
 import { Observable } from 'rxjs';
-import { ConfigurationService } from 'app/shared/services/configuration.service';
-import { AuthStateService } from 'app/auth/services/auth-state.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
               private router: Router,
               private metricsService: MetricsService) {
     this.isLoading$ = this.applicationStateService.isLoading$;
-    this.authStateService.userData$.pipe(takeUntilDestroyed()).subscribe(({ canRateApplication }) => this.canUserRateApplication = canRateApplication);
+    this.authStateService.userData$.pipe(takeUntilDestroyed()).subscribe((userData) => this.canUserRateApplication = !!userData?.canRateApplication);
   }
 
   public ngOnInit(): void {
