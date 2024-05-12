@@ -43,7 +43,7 @@ func ListContainers(cli *client.Client) ([]types.Container, error) {
 }
 
 func CollectLogsForAnalysis(containerID string, dockerClient *client.Client) ([]models.LogEntry, error) {
-	const MaxLogTail = 8
+	const MaxLogTail = 50
 	const LogStringBuffer = 8
 	const LogTimestampParsingTemplate = "2006-01-02T15:04:05.000000000Z"
 
