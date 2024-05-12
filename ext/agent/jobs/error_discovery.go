@@ -16,7 +16,7 @@ import (
 
 func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPayload models.TaskPayload, containersState map[string]*time.Time) {
 	var currentsIDs = make([]string, 0)
-	var mutex = &sync.RWMutex{}
+	var mutex = sync.RWMutex{}
 
 	containers, err := helpers.ListContainers(dockerClient)
 	if err != nil {
@@ -31,9 +31,9 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 		mutex.RUnlock()
 		if !exists {
 			containerCreationTime := time.Unix(container.Created, 0)
-			mutex.RLock()
+			mutex.Lock()
 			containersState[container.ID] = &containerCreationTime
-			mutex.RUnlock()
+			mutex.Unlock()
 		}
 
 		wg.Add(1)
@@ -55,17 +55,19 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 				logger.Errorf("Failed to collect logs for container %s: %v", containerDefinition.ID, err)
 			}
 
-			mutex.RLock()
 			for _, log := range logs {
+				mutex.RLock()
 				if log.Timestamp.After(*containersState[containerDefinition.ID]) {
 					logString += (log.Log + "\n")
 					timestampCheckpoint = log.Timestamp
 				}
+				mutex.RUnlock()
 			}
 			if logString != "" {
+				mutex.Lock()
 				containersState[containerDefinition.ID] = &timestampCheckpoint
+				mutex.Unlock()
 			}
-			mutex.RUnlock()
 
 			isErrorState, severity = checkLogsForIssue(logString)
 			if isErrorState {
@@ -82,7 +84,9 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 	mutex.RLock()
 	for key, _ := range containersState {
 		if verifyIfContainerDeleted(key, currentsIDs) {
+			mutex.Lock()
 			delete(containersState, key)
+			mutex.Unlock()
 			helpers.DeleteContainerIssues(key, taskPayload)
 		}
 	}

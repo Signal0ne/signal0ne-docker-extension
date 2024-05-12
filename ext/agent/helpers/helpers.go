@@ -5,7 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"signal/models"
 	"strconv"
@@ -61,7 +61,7 @@ func CollectLogsForAnalysis(containerID string, dockerClient *client.Client) ([]
 	}
 	defer logs.Close()
 
-	logBytes, err := ioutil.ReadAll(logs)
+	logBytes, err := io.ReadAll(logs)
 	if err != nil {
 		return nil, err
 	}
