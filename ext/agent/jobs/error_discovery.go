@@ -16,7 +16,7 @@ import (
 
 func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPayload models.TaskPayload, containersState map[string]*time.Time) {
 	var currentsIDs = make([]string, 0)
-	var mutex = &sync.RWMutex{}
+	var mutex = sync.RWMutex{}
 
 	containers, err := helpers.ListContainers(dockerClient)
 	if err != nil {
@@ -31,9 +31,9 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 		mutex.RUnlock()
 		if !exists {
 			containerCreationTime := time.Unix(container.Created, 0)
-			mutex.RLock()
+			mutex.Lock()
 			containersState[container.ID] = &containerCreationTime
-			mutex.RUnlock()
+			mutex.Unlock()
 		}
 
 		wg.Add(1)
@@ -50,23 +50,24 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 				logger.Errorf("Failed to inspect container %s: %v", containerDefinition.ID, err)
 				return
 			}
-
 			logs, err := helpers.CollectLogsForAnalysis(containerDefinition.ID, dockerClient)
 			if err != nil {
 				logger.Errorf("Failed to collect logs for container %s: %v", containerDefinition.ID, err)
 			}
 
-			mutex.RLock()
 			for _, log := range logs {
-				if log.Timestamp.Add(-1 * time.Second).After(*containersState[containerDefinition.ID]) {
+				mutex.RLock()
+				if log.Timestamp.After(*containersState[containerDefinition.ID]) {
 					logString += (log.Log + "\n")
 					timestampCheckpoint = log.Timestamp
 				}
+				mutex.RUnlock()
 			}
 			if logString != "" {
+				mutex.Lock()
 				containersState[containerDefinition.ID] = &timestampCheckpoint
+				mutex.Unlock()
 			}
-			mutex.RUnlock()
 
 			isErrorState, severity = checkLogsForIssue(logString)
 			if isErrorState {
@@ -83,7 +84,9 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 	mutex.RLock()
 	for key, _ := range containersState {
 		if verifyIfContainerDeleted(key, currentsIDs) {
+			mutex.Lock()
 			delete(containersState, key)
+			mutex.Unlock()
 			helpers.DeleteContainerIssues(key, taskPayload)
 		}
 	}
@@ -91,16 +94,13 @@ func ScanForErrors(dockerClient *client.Client, logger *logrus.Logger, taskPaylo
 }
 
 func checkLogsForIssue(logs string) (matched bool, severity string) {
-	regexWarning := `(?i)(deprecated|deprecating|unsupported|warn|warning)`
+	regexWarning := `(?i)(deprecated|deprecating|warn|warning)`
 	matched, _ = regexp.MatchString(regexWarning, strings.ToLower(logs))
 	if matched {
 		severity = "WARNING"
 	}
 
-	regexError := `(?i)(abort|blocked|corrupt|crash|critical|deadlock|denied|
-		err|error|exception|fatal|forbidden|freeze|hang|illegal|invalid|missing|
-		panic|rejected|refused|stacktrace|timeout|traceback|unauthorized|uncaught|unexpected|unhandled|
-		unimplemented)`
+	regexError := `(?i)(critical|deadlock|denied|err|error|exception|fatal|forbidden|panic|refused|stacktrace|traceback|unauthorized|uncaught|unexpected|unhandled)`
 	matched, _ = regexp.MatchString(regexError, strings.ToLower(logs))
 	if matched {
 		severity = "CRITICAL"
