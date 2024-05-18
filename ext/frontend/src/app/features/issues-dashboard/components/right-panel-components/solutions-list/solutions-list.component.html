@@ -3,9 +3,14 @@
     {{ "FEATURES.ISSUES.INSIGHTS" | translate }}
   </h3>
 
-  <p class="mb-3">
+  <p class="mb-3" *ngIf="activeIssue.logSummary; else emptyLogSummary">
     {{ activeIssue.logSummary }}
   </p>
+  <ng-template #emptyLogSummary>
+    <p class="mb-3">
+      {{ "FEATURES.ISSUES.EMPTY_LOG_SUMMARY" | translate }}
+    </p>
+  </ng-template>
   <div
     class="accordion accordion-flush logs-container mb-3 py-0"
     id="accordionFlushExample"
@@ -16,52 +21,68 @@
         <button
           class="accordion-button collapsed"
           type="button"
+          id="accordion-button"
           data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseOne"
+          data-bs-target="#solutions-collapse"
           aria-expanded="false"
-          aria-controls="flush-collapseOne"
+          aria-controls="solutions-collapse"
         >
           {{ "FEATURES.ISSUES.SOURCES_^RAW" | translate }}
         </button>
       </h2>
       <div
-        id="flush-collapseOne"
+        id="solutions-collapse"
         class="accordion-collapse collapse"
         aria-labelledby="flush-headingOne"
         data-bs-parent="#accordionFlushExample"
       >
         <div class="accordion-body py-1">
-          <p *ngFor="let log of activeIssue.logs" class="m-0">{{ log }}</p>
+          <div class="logs-paragraphs-container" *ngIf="activeIssue?.logs.length; else emptySourcesParagraphTemplate">
+            <p *ngFor="let log of activeIssue.logs" class="m-0">{{ log }}</p>
+          </div>
+          <ng-template #emptySourcesParagraphTemplate>
+            <p class="mb-3">
+              {{ "FEATURES.ISSUES.EMPTY_SOURCES_PARAGRAPHS" | translate }}
+            </p>
+          </ng-template>
         </div>
       </div>
     </div>
   </div>
-  <p class="mb-3">
+  <p class="mb-3" *ngIf="activeIssue.predictedSolutionsSummary; else emptyPredictedSolutionsSummary">
     <markdown class="variable-binding" [data]="activeIssue.predictedSolutionsSummary"></markdown>
   </p>
+  <ng-template #emptyPredictedSolutionsSummary>
+    <p class="mb-3">
+      {{ "FEATURES.ISSUES.EMPTY_PREDICTED_SOLUTIONS_SUMMARY" | translate }}
+    </p>
+  </ng-template>
   <h3>{{ "FEATURES.ISSUES.SOURCES" | translate }}</h3>
-  <div class="solution-sources-container">
+  <div class="solution-sources-container" *ngIf="activeIssue.issuePredictedSolutionsSources?.length; else emptySourcesLinksTemplate">
     <div
       class="solution-source d-flex"
       *ngFor="let solutionSource of activeIssue.issuePredictedSolutionsSources"
       tabindex="0"
     >
       <i class="bi bi-copy me-3" (click)="copyLink(solutionSource)" [matTooltip]="'FEATURES.ISSUES.COPY_LINK' | translate"></i>
-      <h4>{{ solutionSource }}</h4>
+      <h4 role="link">{{ solutionSource }}</h4>
     </div>
   </div>
+  <ng-template #emptySourcesLinksTemplate>
+    <p class="mb-3">
+      {{ "FEATURES.ISSUES.EMPTY_SOURCES_LINKS" | translate }}
+    </p>
+  </ng-template>
   <div class="d-flex align-items-center mt-3">
     <div class="likes-container">
       <i
               class="bi bi-hand-thumbs-up"
-              [ngClass]="activeIssue.score === 1 ? 'score-selected' : ''"
               (click)="positiveScoreSelected()"
               [ngClass]="activeIssue.score === 1 ? 'score-selected' : ''"
       ></i>
       <div class="divider"></div>
       <i
               class="bi bi-hand-thumbs-down"
-              [ngClass]="activeIssue.score === -1 ? 'score-selected' : ''"
               (click)="negativeScoreSelected()"
               [ngClass]="activeIssue.score === -1 ? 'score-selected' : ''"
       ></i>

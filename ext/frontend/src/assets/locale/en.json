@@ -139,6 +139,10 @@
       "DELETE_ISSUE": "Delete issue",
       "REPORT_REASON_SUCCESSFULLY_SEND": "Report reason send success",
       "SEND": "Send",
+      "EMPTY_PREDICTED_SOLUTIONS_SUMMARY": "Sorry we couldn't generate proposed solution for you",
+      "EMPTY_LOG_SUMMARY": "Sorry we couldn't generate summary for you",
+      "EMPTY_SOURCES_LINKS": "Sorry we couldn't generate sources links for you",
+      "EMPTY_SOURCES_PARAGRAPHS": "Sorry we couldn't generate sources for you",
       "CHAT": {
         "ASK_MODEL": "Ask model"
       }
