@@ -143,6 +143,7 @@
       "EMPTY_LOG_SUMMARY": "Sorry we couldn't generate summary for you",
       "EMPTY_SOURCES_LINKS": "Sorry we couldn't generate sources links for you",
       "EMPTY_SOURCES_PARAGRAPHS": "Sorry we couldn't generate sources for you",
+      "LOGS": "Logs",
       "CHAT": {
         "ASK_MODEL": "Ask model"
       }

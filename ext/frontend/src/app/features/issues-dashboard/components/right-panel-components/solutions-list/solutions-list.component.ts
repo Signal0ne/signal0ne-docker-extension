@@ -18,8 +18,10 @@ export class SolutionsListComponent {
 
   @Input()
   public set activeIssue(issue: DetailedIssueDTO) {
+    if (this.activeIssue && this.activeIssue?.id !== issue.id) {
+      this.resetCollapseState();
+    }
     this._activeIssue = issue;
-    this.resetCollapseState();
   }
   @Output()
   public scoreSelected: EventEmitter<DetailedIssueScore> = new EventEmitter<DetailedIssueScore>();

@@ -143,6 +143,7 @@
       "EMPTY_LOG_SUMMARY": "Przepraszamy, nie mogliśmy wygenerować dla Ciebie podsumowania",
       "EMPTY_SOURCES_LINKS": "Przepraszamy, nie mogliśmy wygenerować dla Ciebie linków do źródeł",
       "EMPTY_SOURCES_PARAGRAPHS": "Przepraszamy, nie mogliśmy wygenerować dla Ciebie źródeł",
+      "LOGS": "Logi",
       "CHAT": {
         "ASK_MODEL": "Zapytaj model"
       }

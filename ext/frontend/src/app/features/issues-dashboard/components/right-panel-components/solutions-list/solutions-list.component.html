@@ -7,7 +7,7 @@
     {{ activeIssue.logSummary }}
   </p>
   <ng-template #emptyLogSummary>
-    <p class="mb-3">
+    <p class="mb-3 empty-content-padding">
       {{ "FEATURES.ISSUES.EMPTY_LOG_SUMMARY" | translate }}
     </p>
   </ng-template>
@@ -27,7 +27,7 @@
           aria-expanded="false"
           aria-controls="solutions-collapse"
         >
-          {{ "FEATURES.ISSUES.SOURCES_^RAW" | translate }}
+          {{ "FEATURES.ISSUES.LOGS" | translate }}
         </button>
       </h2>
       <div
@@ -41,7 +41,7 @@
             <p *ngFor="let log of activeIssue.logs" class="m-0">{{ log }}</p>
           </div>
           <ng-template #emptySourcesParagraphTemplate>
-            <p class="mb-3">
+            <p class="mb-3 empty-content-padding">
               {{ "FEATURES.ISSUES.EMPTY_SOURCES_PARAGRAPHS" | translate }}
             </p>
           </ng-template>
@@ -53,7 +53,7 @@
     <markdown class="variable-binding" [data]="activeIssue.predictedSolutionsSummary"></markdown>
   </p>
   <ng-template #emptyPredictedSolutionsSummary>
-    <p class="mb-3">
+    <p class="mb-3 empty-content-padding">
       {{ "FEATURES.ISSUES.EMPTY_PREDICTED_SOLUTIONS_SUMMARY" | translate }}
     </p>
   </ng-template>
@@ -69,7 +69,7 @@
     </div>
   </div>
   <ng-template #emptySourcesLinksTemplate>
-    <p class="mb-3">
+    <p class="mb-3 empty-content-padding">
       {{ "FEATURES.ISSUES.EMPTY_SOURCES_LINKS" | translate }}
     </p>
   </ng-template>
