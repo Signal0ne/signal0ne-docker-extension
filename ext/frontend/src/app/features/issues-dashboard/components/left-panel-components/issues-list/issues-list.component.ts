@@ -21,14 +21,17 @@ export class IssuesListComponent {
   constructor() {}
 
   public selectIssue(issue: IssueDTO): void {
-    this.selectedIssueId = issue.id;
-    this.viewIssue.emit(issue);
+    if (!this.selectedIssueId || this.selectedIssueId !== issue.id) {
+      this.selectedIssueId = issue.id;
+      this.viewIssue.emit(issue);
+    }
   }
 
   public selectIssueKeydown(issue: IssueDTO, event: KeyboardEvent): void {
     if (
       event instanceof KeyboardEvent &&
-      (event.key === 'Enter' || event.key === ' ')
+      (event.key === 'Enter' || event.key === ' ') &&
+      (!this.selectedIssueId || this.selectedIssueId !== issue.id)
     ) {
       if (event.key === ' ') event.preventDefault();
 

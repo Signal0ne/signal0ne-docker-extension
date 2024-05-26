@@ -16,8 +16,15 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./solutions-list.component.scss'],
 })
 export class SolutionsListComponent {
+  private _activeIssue: DetailedIssueDTO;
+
   @Input()
-  public activeIssue: DetailedIssueDTO;
+  public set activeIssue(issue: DetailedIssueDTO) {
+    if (this.activeIssue && this.activeIssue?.id !== issue.id) {
+      this.resetCollapseState();
+    }
+    this._activeIssue = issue;
+  }
   @Output()
   public scoreSelected: EventEmitter<DetailedIssueScore> =
     new EventEmitter<DetailedIssueScore>();
@@ -32,6 +39,10 @@ export class SolutionsListComponent {
     private dialog: MatDialog,
     private metricsService: MetricsService
   ) {}
+
+  public get activeIssue(): DetailedIssueDTO {
+    return this._activeIssue;
+  }
 
   public positiveScoreSelected(): void {
     if (this.activeIssue.score === 1) {
@@ -66,5 +77,14 @@ export class SolutionsListComponent {
         issueId: this.activeIssue.id,
       },
     });
+  }
+
+  private resetCollapseState(): void {
+    const myCollapse = document.getElementById('solutions-collapse');
+    // @ts-ignore
+    const bsCollapse = new bootstrap.Collapse(myCollapse, {
+      toggle: false
+    });
+    bsCollapse.hide()
   }
 }
