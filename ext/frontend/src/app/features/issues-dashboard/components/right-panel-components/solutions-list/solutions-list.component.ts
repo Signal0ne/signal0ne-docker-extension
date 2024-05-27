@@ -21,6 +21,7 @@ export class SolutionsListComponent {
   @Input()
   public set activeIssue(issue: DetailedIssueDTO) {
     if (this.activeIssue && this.activeIssue?.id !== issue.id) {
+      document.querySelector('.solutions-list')?.scrollTo(0,0)
       this.resetCollapseState();
     }
     this._activeIssue = issue;
