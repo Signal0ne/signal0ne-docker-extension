@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { OAuth2TokenDTO } from 'app/shared/interfaces/OAuth2TokenDTO';
 import { Token } from 'app/shared/interfaces/Token';
 import { StorageUtil } from 'app/shared/util/StorageUtil';
-import { environment } from 'environment/environment.development';
+import { environment } from 'environment/environment';
 import { map, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

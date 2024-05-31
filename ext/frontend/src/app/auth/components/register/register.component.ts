@@ -6,7 +6,7 @@ import { AuthStateService } from 'app/auth/services/auth-state.service';
 import { AuthService } from 'app/auth/services/auth.service';
 import { Constants } from 'app/config/Constant';
 import { confirmPasswordValidator } from 'app/shared/validators/confirm-password.validator';
-import { environment } from 'environment/environment.development';
+import { environment } from 'environment/environment';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

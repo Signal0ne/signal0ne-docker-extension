@@ -5,8 +5,7 @@ import {
   ResendVerificationLinkPopupComponent
 } from 'app/auth/components/resendVerificationLink/resend-verification-link-popup.component';
 import { AuthStateService } from 'app/auth/services/auth-state.service';
-import { environment } from 'environment/environment.development';
-
+import { environment } from 'environment/environment';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

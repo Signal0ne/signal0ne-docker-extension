@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { MetricsService } from 'app/shared/services/metrics.service';
-import { environment } from 'environment/environment.development';
+import { environment } from 'environment/environment';
 
 interface Benefit {
   hasTooltip: boolean;
