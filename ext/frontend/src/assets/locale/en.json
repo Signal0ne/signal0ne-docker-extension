@@ -67,14 +67,14 @@
       "PRO_VERSION_PRICE": "Price",
       "PER_MONTH": "/ month",
       "WHAT_WILL_YOU_GET": "What will you get ?",
-      "PRO_VERSION_BENEFIT_1": "Pro version benefit 1 placeholder dsa dsadsads adsa dsa dsa dasds a",
-      "PRO_VERSION_BENEFIT_TOOLTIP_1": "Pro version benefit 1 tooltip",
-      "PRO_VERSION_BENEFIT_2": "Pro version benefit 2 placeholder",
+      "PRO_VERSION_BENEFIT_1": "gpt-4o core backend model without rate limit",
+      "PRO_VERSION_BENEFIT_2": "vscode extension 'fix code' feature available",
+      "PRO_VERSION_BENEFIT_TOOLTIP_2": "See more at signaloneai.com/#pro",
       "MANAGE": "Manage subscription",
       "UPGRADE": "Upgrade",
-      "MOST_IMPORTANT_FUNCTIONS": "Most important functions",
-      "FREE_30_DAYS_TRIAL": "Free 30 days trial and then",
-      "UNSUBSCRIBE_ANYTIME": "Cancel any time"
+      "MOST_IMPORTANT_FUNCTIONS": "Pro benefits",
+      "FREE_30_DAYS_TRIAL": "Free 30 days trial(no credit card required) and then",
+      "UNSUBSCRIBE_ANYTIME": "Cancel anytime"
     },
     "CONFIGURATION_DROPDOWN": {
       "AGENT_STATE": "Agent status",

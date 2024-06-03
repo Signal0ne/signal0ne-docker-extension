@@ -35,10 +35,10 @@ push-extension: prepare-buildx ## Build & Upload extension image to hub. Do not 
 	docker pull $(IMAGE):$(TAG) && echo "Failure: Tag already exists" || docker buildx build --push --builder=$(BUILDER) --platform=linux/amd64,linux/arm64 --build-arg TAG=$(TAG) --tag=$(IMAGE):$(TAG) .
 
 build-extension-dependencies: ## Build dependencies for the extension
-	docker build --tag=$(FRONTEND_IMAGE):$(TAG) ./frontend
+	docker build --tag=$(FRONTEND_IMAGE):$(TAG) -f ./frontend/dev.Dockerfile ./frontend
 
 build-extension-dependencies-production: ## Build dependencies for the extension
-	docker buildx build --platform=linux/arm64,linux/amd64 --push --tag=$(PROD_FRONTEND_IMAGE):$(PROD_TAG) ./frontend
+	docker buildx build --platform=linux/arm64,linux/amd64 --push --tag=$(PROD_FRONTEND_IMAGE):$(PROD_TAG) -f ./frontend/prod.Dockerfile ./frontend
 
 start-devenv: ## Start development environment
 	docker compose -f ./devenv/docker-compose.yaml up -d

@@ -28,10 +28,10 @@ export class VersionUpdatePopupComponent {
   );
   public benefits: Benefit[] = [
     {
-      hasTooltip: true
+      hasTooltip: false
     },
     {
-      hasTooltip: false
+      hasTooltip: true
     }
   ];
 

@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
 export class HeaderComponent {
   public LanguageVersion: typeof LanguageVersion = LanguageVersion;
   public activeLanguage$: Observable<LanguageVersion>;
-  public isProVisible: boolean = false;
+  public isProVisible: boolean = true;
   public isPro: boolean;
   public isLoggedIn: boolean
   constructor(
