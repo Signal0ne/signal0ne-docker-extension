@@ -7,6 +7,6 @@ export const environment = {
   googleLoginProvider: '359898712853-rcec16l3ivs24rod4hb2kcsr9qvotf3t.apps.googleusercontent.com',
   githubClientId: '6c88a4f9d4868879974e',
   proAccountPrice: 10,
-  proProductSubscriptionId: 'price_1OzmxX06sWxzpbKvzFO27PDe',
+  proProductSubscriptionId: 'price_1PPm6y06sWxzpbKvUbZpWAex',
   stripePublicKey: 'pk_test_51Ozmdu06sWxzpbKvDWwUu8D4Jpspm4ffoUL4Obo43sUnj0rtjbWV414CRdqSHiW0HDoonwJqbQJ6A0CtMrzjDuZA00OIckpih9',
 };
