@@ -1,6 +1,6 @@
 export const environment = {
   defaultLanguage: 'en',
-  production: false,
+  production: true,
   apiUrl: 'https://api.signaloneai.com/api',
   authUrl: 'https://api.signaloneai.com/api/auth',
   agentApiUrl: 'http://localhost:37002/api',
